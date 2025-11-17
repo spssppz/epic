@@ -55,10 +55,6 @@ summary {
 	display: list-item
 }
 
-[hidden] {
-	display: none
-}
-
 :root {
 	--primary-bg: #151315;
 	--color-text: #CECACA
@@ -214,60 +210,6 @@ img {
 	position: relative
 }
 
-.header__menu-link {
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	gap: 8px;
-	padding: 0 12px;
-	min-height: 40px;
-	border-radius: 12px;
-	font-family: Gilroy, sans-serif;
-	font-weight: 500;
-	font-size: 20px;
-	line-height: 1.2;
-	letter-spacing: -.1px;
-	color: rgba(255, 255, 255, .64);
-	text-decoration: none;
-	transition: color .2s ease, background .2s ease, box-shadow .2s ease
-}
-
-.header__menu-link:focus-visible,
-.header__menu-link:hover {
-	color: #fff
-}
-
-.header__menu-link:focus-visible {
-	outline: 2px solid rgba(251, 206, 157, .4);
-	outline-offset: 4px
-}
-
-.header__menu-icon {
-	display: inline-flex;
-	width: 24px;
-	height: 24px;
-	flex-shrink: 0;
-	align-items: center;
-	justify-content: center
-}
-
-.header__menu-icon img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	transition: opacity .2s ease;
-	opacity: .64
-}
-
-.header__menu-link:focus-visible .header__menu-icon img,
-.header__menu-link:hover .header__menu-icon img {
-	opacity: 1
-}
-
-.header__menu-label {
-	white-space: nowrap
-}
-
 .header__actions {
 	display: flex;
 	align-items: center;
@@ -385,16 +327,6 @@ img {
 	height: 24px
 }
 
-@media (max-width:1479px) {
-	.header__branding {
-		gap: 24px
-	}
-
-	.header__actions {
-		gap: 32px
-	}
-}
-
 .main-banner {
 	display: flex;
 	gap: 12px;
@@ -470,14 +402,6 @@ img {
 	padding: 32px 24px
 }
 
-.main-banner__item--small .main-banner__title {
-	font-size: 48px;
-	line-height: 1.17;
-	letter-spacing: -.01em;
-	text-align: center;
-	text-shadow: 0 0 24px rgba(255, 200, 147, .24), 0 0 12px rgba(12, 10, 7, .6)
-}
-
 .main-banner__item--small .main-banner__button {
 	width: auto;
 	margin-top: auto
@@ -544,11 +468,6 @@ img {
 	z-index: 10
 }
 
-.tab-panel__item-icon img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain
-}
 
 .tab-panel__item-text {
 	display: flex;
@@ -1337,18 +1256,6 @@ img {
 	pointer-events: none
 }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(-10px)
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0)
-	}
-}
-
 .quick-links__grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -1419,12 +1326,6 @@ img {
 	letter-spacing: -.5%;
 	color: #fff;
 	margin: 0
-}
-
-.vip-status-list__header-icon {
-	width: 24px;
-	height: 24px;
-	display: block
 }
 
 .vip-status-list__mid {
@@ -1803,27 +1704,6 @@ img {
 	color: #fff
 }
 
-@media (max-width:960px) {
-	.vip-status-list__controls {
-		flex-wrap: wrap
-	}
-
-	.vip-status-list__header-head {
-		flex: 1 1 auto;
-		order: 0
-	}
-
-	.vip-status-list__nav {
-		flex: 0 0 auto;
-		order: 1
-	}
-
-	.vip-status-list__mid {
-		flex: 1 1 100%;
-		order: 2;
-		justify-content: flex-start
-	}
-}
 
 .vip-status-list__container {
 	overflow: hidden;
@@ -2180,94 +2060,6 @@ img {
 
 .achive-common__item:nth-child(2) .achive-common__card--xl {
 	display: none
-}
-
-@media (max-width:1440px) {
-	.achive-common {
-		grid-template-columns: repeat(6, 1fr)
-	}
-
-	.achive-common__item:nth-child(1),
-	.achive-common__item:nth-child(2) {
-		grid-column: span 3
-	}
-
-	.achive-common__item:nth-child(3),
-	.achive-common__item:nth-child(4),
-	.achive-common__item:nth-child(5) {
-		grid-column: span 2
-	}
-
-	.achive-common__item:nth-child(2) .achive-common__card--xl {
-		display: flex
-	}
-
-	.achive-common__item:nth-child(2) .achive-common__card--sm {
-		display: none
-	}
-}
-
-@media (max-width:600px) {
-	.vip-status-list__container {
-		overflow-x: auto;
-		overflow-y: hidden;
-		scroll-behavior: smooth;
-		-webkit-overflow-scrolling: touch;
-		scrollbar-width: none
-	}
-
-	.vip-status-list__container::-webkit-scrollbar {
-		display: none
-	}
-
-	.vip-status-list__container .swiper-wrapper {
-		gap: 8px;
-		width: max-content
-	}
-
-	.vip-status-list__nav {
-		display: none
-	}
-
-	.boost-wrap__container {
-		overflow-x: auto;
-		overflow-y: hidden;
-		scroll-behavior: smooth;
-		-webkit-overflow-scrolling: touch;
-		scrollbar-width: none
-	}
-
-	.boost-wrap__container::-webkit-scrollbar {
-		display: none
-	}
-
-	.boost-wrap__levels {
-		gap: var(--boost-levels-gap);
-		width: max-content
-	}
-
-	.achive-common {
-		grid-template-columns: repeat(6, 1fr)
-	}
-
-	.achive-common__item:nth-child(1) {
-		grid-column: span 6
-	}
-
-	.achive-common__item:nth-child(2),
-	.achive-common__item:nth-child(3),
-	.achive-common__item:nth-child(4),
-	.achive-common__item:nth-child(5) {
-		grid-column: span 3
-	}
-
-	.achive-common__item:nth-child(2) .achive-common__card--xl {
-		display: none
-	}
-
-	.achive-common__item:nth-child(2) .achive-common__card--sm {
-		display: block
-	}
 }
 
 .achive-common__card {
@@ -3329,65 +3121,6 @@ img {
 	color: #7b7b9e
 }
 
-@media (max-width:1279px) {
-	.header {
-		padding: 20px 0
-	}
-
-	.header__menu-link {
-		font-size: 18px;
-		min-height: 36px
-	}
-
-	.info-text-block h1 {
-		font-size: 28px
-	}
-
-	.info-text-block h2 {
-		font-size: 24px
-	}
-
-	.info-text-block h3 {
-		font-size: 20px
-	}
-
-	.info-text-block h4 {
-		font-size: 18px
-	}
-
-	.info-text-block h5 {
-		font-size: 16px
-	}
-
-	.info-text-block h6 {
-		font-size: 14px
-	}
-
-	.login-gate__title {
-		font-size: 28px
-	}
-
-	.bonus-system__title {
-		font-size: 24px
-	}
-
-	.faq__title {
-		font-size: 22px
-	}
-
-	.faq__question-text {
-		font-size: 18px
-	}
-
-	.reviews__title {
-		font-size: 22px
-	}
-
-	.reviews__user-name {
-		font-size: 18px
-	}
-}
-
 .reviews {
 	display: flex;
 	flex-direction: column;
@@ -3825,39 +3558,6 @@ img {
 	white-space: nowrap
 }
 
-@media (max-width:1439px) {
-	.info-text-block {
-		max-width: 100%
-	}
-
-	.quick-links {
-		max-width: 100%
-	}
-
-	.tour-grid {
-		max-width: 100%
-	}
-
-	.tour-grid__title {
-		font-size: 28px
-	}
-
-	.faq__title {
-		font-size: 24px
-	}
-
-	.reviews__title {
-		font-size: 24px
-	}
-
-	.footer {
-		padding-top: 60px
-	}
-
-	.footer__top {
-		gap: 30px
-	}
-}
 
 .mobile-bar {
 	display: none;
@@ -4140,7 +3840,6 @@ img {
 	background: linear-gradient(180deg, rgba(177, 213, 251, 1) 0, rgba(158, 203, 250, 1) 100%)
 }
 
-.ctr-btn.is-disabled,
 .ctr-btn:disabled {
 	background: linear-gradient(180deg, rgba(9, 69, 155, 1) 0, rgba(11, 87, 193, 1) 100%);
 	box-shadow: none;
@@ -4149,12 +3848,10 @@ img {
 	color: rgba(255, 255, 255, .4)
 }
 
-.ctr-btn.is-disabled::before,
 .ctr-btn:disabled::before {
 	background: linear-gradient(180deg, rgba(4, 35, 77, 1) 0, rgba(11, 87, 193, 1) 100%)
 }
 
-.ctr-btn.is-disabled::after,
 .ctr-btn:disabled::after {
 	background: linear-gradient(180deg, rgba(11, 87, 193, 1) 0, rgba(12, 95, 213, 1) 100%);
 	opacity: .2
@@ -4163,388 +3860,6 @@ img {
 .ctr-btn--xl {
 	height: 56px;
 	font-size: 18px
-}
-
-@media (max-width:959px) {
-	.main__container {
-		gap: 12px
-	}
-
-	.container {
-		padding-inline: 12px
-	}
-
-	.header__auth {
-		display: none
-	}
-
-	.header__mobile-actions {
-		display: inline-flex
-	}
-
-	.header__mobile-actions .tab-btn__icon {
-		height: 20px;
-		width: 20px
-	}
-
-	.header {
-		padding: 16px 0
-	}
-
-	.header__branding {
-		gap: 16px
-	}
-
-	.header__menu {
-		display: none
-	}
-
-	.header__apps {
-		display: none
-	}
-
-	.header__actions {
-		gap: 16px
-	}
-
-	.header__auth {
-		gap: 8px
-	}
-
-	.header__auth .tab-btn--header {
-		font-size: 15px;
-		padding: 0 16px;
-		height: 36px
-	}
-
-	.header__auth .tab-btn--header-menu {
-		width: 36px;
-		min-width: 36px;
-		height: 36px
-	}
-
-	.main-banner {
-		height: 280px
-	}
-
-	.main-banner__item--large {
-		padding: 12px 24px 24px
-	}
-
-	.main-banner__item--small {
-		width: 40%;
-		padding: 12px 24px 24px
-	}
-
-	.tab-panel__item {
-		flex-direction: column;
-		gap: 4px;
-		padding: 8px 12px;
-		font-size: 12px;
-		font-weight: 500
-	}
-
-	.tab-panel__item-icon {
-		width: 24px;
-		height: 24px
-	}
-
-	.game-block {
-		max-width: 220px
-	}
-
-	.game-block__image-container {
-		height: 200px
-	}
-
-	.game-block__title {
-		font-size: 15px
-	}
-
-	.game-block__provider {
-		font-size: 13px
-	}
-
-	.info-text-block {
-		padding: 12px;
-		gap: 16px
-	}
-
-	.info-text-block__content {
-		gap: 16px
-	}
-
-	.info-text-block__show-more-label {
-		font-size: 14px
-	}
-
-	.info-text-block h1 {
-		font-size: 24px
-	}
-
-	.info-text-block h2 {
-		font-size: 20px
-	}
-
-	.info-text-block h3 {
-		font-size: 18px
-	}
-
-	.info-text-block h4 {
-		font-size: 16px
-	}
-
-	.info-text-block h5 {
-		font-size: 14px
-	}
-
-	.info-text-block h6 {
-		font-size: 13px
-	}
-
-	.info-text-block p {
-		font-size: 14px
-	}
-
-	.info-text-block ul {
-		font-size: 14px
-	}
-
-	.quick-links__title {
-		font-size: 18px
-	}
-
-	.quick-links__item-text {
-		font-size: 15px
-	}
-
-	.boost-wrap__header {
-		flex-direction: column;
-		align-items: flex-start
-	}
-
-	.tour-grid__main {
-		grid-template-columns: 1fr
-	}
-
-	.tour-grid__image-wrapper {
-		order: 1;
-		padding: 8px 8px 0
-	}
-
-	.tour-grid__content {
-		order: 2;
-		gap: 32px;
-		padding: 20px 20px 24px
-	}
-
-	.tour-grid__prizes {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 8px;
-		width: 100%
-	}
-
-	.tour-grid__prize {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 34px;
-		padding: 12px;
-		height: 40px;
-		border-radius: 12px
-	}
-
-	.tour-grid__prize:nth-child(1),
-	.tour-grid__prize:nth-child(2) {
-		grid-column: span 2
-	}
-
-	.tour-grid__prize:nth-child(3) {
-		grid-column: span 3
-	}
-
-	.tour-grid__prize-info {
-		gap: 8px;
-		flex: 0 1 auto
-	}
-
-	.tour-grid__prize-icon {
-		width: 24px;
-		height: 24px
-	}
-
-	.tour-grid__prize-place {
-		font-size: 16px;
-		line-height: 1.25
-	}
-
-	.tour-grid__prize-amount {
-		font-size: 16px;
-		line-height: 1.25;
-		font-weight: 600;
-		flex-shrink: 0
-	}
-
-	.tour-grid__all-places {
-		grid-column: span 1;
-		width: 100%;
-		padding: 8px;
-		height: auto
-	}
-
-	.login-gate {
-		height: 250px
-	}
-
-	.login-gate__title {
-		font-size: 24px;
-		line-height: 1.3em
-	}
-
-	.login-gate__description {
-		font-size: 15px;
-		max-width: 480px
-	}
-
-	.bonus-system__cards {
-		grid-template-columns: 1fr
-	}
-
-	.bonus-system__card--cashback,
-	.bonus-system__card--deposit,
-	.bonus-system__card--promo {
-		width: 100%
-	}
-
-	.bonus-system__card--deposit .bonus-system__bg {
-		width: 100%
-	}
-
-	.bonus-system__card--promo {
-		min-height: 84px
-	}
-
-	.bonus-system__card--cashback {
-		min-height: 188px
-	}
-
-	.bonus-system__card--deposit {
-		min-height: 260px
-	}
-
-	.bonus-system {
-		gap: 24px
-	}
-
-	.bonus-system__title {
-		font-size: 20px
-	}
-
-	.bonus-system__card--promo {
-		flex-direction: column
-	}
-
-	.bonus-system__card-description {
-		width: 100%
-	}
-
-	.bonus-system__deposit-title {
-		font-size: 28px
-	}
-
-	.faq {
-		gap: 10px
-	}
-
-	.faq__title {
-		font-size: 20px
-	}
-
-	.faq__wrapper {
-		gap: 16px
-	}
-
-	.faq__question-text {
-		font-size: 16px
-	}
-
-	.faq__answer-text {
-		font-size: 14px
-	}
-
-	.reviews {
-		gap: 10px
-	}
-
-	.reviews__title {
-		font-size: 20px
-	}
-
-	.reviews__wrapper {
-		gap: 16px
-	}
-
-	.reviews__header {
-		flex-direction: column;
-		align-items: flex-start
-	}
-
-	.reviews__user {
-		width: 100%
-	}
-
-	.reviews__user-name {
-		font-size: 16px
-	}
-
-	.reviews__text {
-		font-size: 14px
-	}
-
-	.reviews__rating {
-		font-size: 20px
-	}
-
-	.footer {
-		padding-top: 24px;
-		padding-bottom: calc(24px + var(--height-mobile-bar))
-	}
-
-	.footer__apps {
-		display: none
-	}
-
-	.footer__links {
-		gap: 12px
-	}
-
-	.footer__right {
-		gap: 20px
-	}
-
-	.footer__description {
-		flex-direction: column;
-		gap: 20px
-	}
-
-	.footer__bottom {
-		flex-direction: column
-	}
-
-	.mobile-bar {
-		display: block
-	}
-
-	.ctr-btn {
-		font-size: 16px;
-		height: 44px
-	}
-
-	.ctr-btn--xl {
-		height: 48px;
-		font-size: 16px
-	}
 }
 
 .tab-btn {
@@ -4583,7 +3898,6 @@ img {
 	outline-offset: 2px
 }
 
-.tab-btn.is-disabled,
 .tab-btn:disabled {
 	background: linear-gradient(180deg, rgba(44, 36, 37, 1) 0, rgba(56, 46, 48, 1) 100%);
 	border-color: rgba(212, 199, 196, .2);
@@ -5273,17 +4587,594 @@ img {
 	flex: 1
 }
 
-.sidebar-overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100svh;
-	background: rgba(0, 0, 0, 0.5);
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.3s ease, visibility 0.3s ease;
-	z-index: 999
+@media (max-width:1479px) {
+	.header__branding {
+		gap: 24px
+	}
+
+	.header__actions {
+		gap: 32px
+	}
+}
+
+@media (max-width:1440px) {
+	.achive-common {
+		grid-template-columns: repeat(6, 1fr)
+	}
+
+	.achive-common__item:nth-child(1),
+	.achive-common__item:nth-child(2) {
+		grid-column: span 3
+	}
+
+	.achive-common__item:nth-child(3),
+	.achive-common__item:nth-child(4),
+	.achive-common__item:nth-child(5) {
+		grid-column: span 2
+	}
+
+	.achive-common__item:nth-child(2) .achive-common__card--xl {
+		display: flex
+	}
+
+	.achive-common__item:nth-child(2) .achive-common__card--sm {
+		display: none
+	}
+}
+
+@media (max-width:1439px) {
+	.info-text-block {
+		max-width: 100%
+	}
+
+	.quick-links {
+		max-width: 100%
+	}
+
+	.tour-grid {
+		max-width: 100%
+	}
+
+	.tour-grid__title {
+		font-size: 28px
+	}
+
+	.faq__title {
+		font-size: 24px
+	}
+
+	.reviews__title {
+		font-size: 24px
+	}
+
+	.footer {
+		padding-top: 60px
+	}
+
+	.footer__top {
+		gap: 30px
+	}
+}
+
+@media (max-width:1279px) {
+	.header {
+		padding: 20px 0
+	}
+
+	.info-text-block h1 {
+		font-size: 28px
+	}
+
+	.info-text-block h2 {
+		font-size: 24px
+	}
+
+	.info-text-block h3 {
+		font-size: 20px
+	}
+
+	.info-text-block h4 {
+		font-size: 18px
+	}
+
+	.info-text-block h5 {
+		font-size: 16px
+	}
+
+	.info-text-block h6 {
+		font-size: 14px
+	}
+
+	.login-gate__title {
+		font-size: 28px
+	}
+
+	.bonus-system__title {
+		font-size: 24px
+	}
+
+	.faq__title {
+		font-size: 22px
+	}
+
+	.faq__question-text {
+		font-size: 18px
+	}
+
+	.reviews__title {
+		font-size: 22px
+	}
+
+	.reviews__user-name {
+		font-size: 18px
+	}
+}
+
+@media (max-width:960px) {
+	.vip-status-list__controls {
+		flex-wrap: wrap
+	}
+
+	.vip-status-list__header-head {
+		flex: 1 1 auto;
+		order: 0
+	}
+
+	.vip-status-list__nav {
+		flex: 0 0 auto;
+		order: 1
+	}
+
+	.vip-status-list__mid {
+		flex: 1 1 100%;
+		order: 2;
+		justify-content: flex-start
+	}
+}
+
+@media (max-width:959px) {
+	.main__container {
+		gap: 12px
+	}
+
+	.container {
+		padding-inline: 12px
+	}
+
+	.header__auth {
+		display: none
+	}
+
+	.header__mobile-actions {
+		display: inline-flex
+	}
+
+	.header__mobile-actions .tab-btn__icon {
+		height: 20px;
+		width: 20px
+	}
+
+	.header {
+		padding: 16px 0
+	}
+
+	.header__branding {
+		gap: 16px
+	}
+
+	.header__menu {
+		display: none
+	}
+
+	.header__apps {
+		display: none
+	}
+
+	.header__actions {
+		gap: 16px
+	}
+
+	.header__auth {
+		gap: 8px
+	}
+
+	.header__auth .tab-btn--header {
+		font-size: 15px;
+		padding: 0 16px;
+		height: 36px
+	}
+
+	.header__auth .tab-btn--header-menu {
+		width: 36px;
+		min-width: 36px;
+		height: 36px
+	}
+
+	.main-banner {
+		height: 280px
+	}
+
+	.main-banner__item--large {
+		padding: 12px 24px 24px
+	}
+
+	.main-banner__item--small {
+		width: 40%;
+		padding: 12px 24px 24px
+	}
+
+	.tab-panel__item {
+		flex-direction: column;
+		gap: 4px;
+		padding: 8px 12px;
+		font-size: 12px;
+		font-weight: 500
+	}
+
+	.tab-panel__item-icon {
+		width: 24px;
+		height: 24px
+	}
+
+	.game-block {
+		max-width: 220px
+	}
+
+	.game-block__image-container {
+		height: 200px
+	}
+
+	.game-block__title {
+		font-size: 15px
+	}
+
+	.game-block__provider {
+		font-size: 13px
+	}
+
+	.info-text-block {
+		padding: 12px;
+		gap: 16px
+	}
+
+	.info-text-block__content {
+		gap: 16px
+	}
+
+	.info-text-block__show-more-label {
+		font-size: 14px
+	}
+
+	.info-text-block h1 {
+		font-size: 24px
+	}
+
+	.info-text-block h2 {
+		font-size: 20px
+	}
+
+	.info-text-block h3 {
+		font-size: 18px
+	}
+
+	.info-text-block h4 {
+		font-size: 16px
+	}
+
+	.info-text-block h5 {
+		font-size: 14px
+	}
+
+	.info-text-block h6 {
+		font-size: 13px
+	}
+
+	.info-text-block p {
+		font-size: 14px
+	}
+
+	.info-text-block ul {
+		font-size: 14px
+	}
+
+	.quick-links__title {
+		font-size: 18px
+	}
+
+	.quick-links__item-text {
+		font-size: 15px
+	}
+
+	.boost-wrap__header {
+		flex-direction: column;
+		align-items: flex-start
+	}
+
+	.tour-grid__main {
+		grid-template-columns: 1fr
+	}
+
+	.tour-grid__image-wrapper {
+		order: 1;
+		padding: 8px 8px 0
+	}
+
+	.tour-grid__content {
+		order: 2;
+		gap: 32px;
+		padding: 20px 20px 24px
+	}
+
+	.tour-grid__prizes {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 8px;
+		width: 100%
+	}
+
+	.tour-grid__prize {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 34px;
+		padding: 12px;
+		height: 40px;
+		border-radius: 12px
+	}
+
+	.tour-grid__prize:nth-child(1),
+	.tour-grid__prize:nth-child(2) {
+		grid-column: span 2
+	}
+
+	.tour-grid__prize:nth-child(3) {
+		grid-column: span 3
+	}
+
+	.tour-grid__prize-info {
+		gap: 8px;
+		flex: 0 1 auto
+	}
+
+	.tour-grid__prize-icon {
+		width: 24px;
+		height: 24px
+	}
+
+	.tour-grid__prize-place {
+		font-size: 16px;
+		line-height: 1.25
+	}
+
+	.tour-grid__prize-amount {
+		font-size: 16px;
+		line-height: 1.25;
+		font-weight: 600;
+		flex-shrink: 0
+	}
+
+	.tour-grid__all-places {
+		grid-column: span 1;
+		width: 100%;
+		padding: 8px;
+		height: auto
+	}
+
+	.login-gate {
+		height: 250px
+	}
+
+	.login-gate__title {
+		font-size: 24px;
+		line-height: 1.3em
+	}
+
+	.login-gate__description {
+		font-size: 15px;
+		max-width: 480px
+	}
+
+	.bonus-system__cards {
+		grid-template-columns: 1fr
+	}
+
+	.bonus-system__card--cashback,
+	.bonus-system__card--deposit,
+	.bonus-system__card--promo {
+		width: 100%
+	}
+
+	.bonus-system__card--deposit .bonus-system__bg {
+		width: 100%
+	}
+
+	.bonus-system__card--promo {
+		min-height: 84px
+	}
+
+	.bonus-system__card--cashback {
+		min-height: 188px
+	}
+
+	.bonus-system__card--deposit {
+		min-height: 260px
+	}
+
+	.bonus-system {
+		gap: 24px
+	}
+
+	.bonus-system__title {
+		font-size: 20px
+	}
+
+	.bonus-system__card--promo {
+		flex-direction: column
+	}
+
+	.bonus-system__card-description {
+		width: 100%
+	}
+
+	.bonus-system__deposit-title {
+		font-size: 28px
+	}
+
+	.faq {
+		gap: 10px
+	}
+
+	.faq__title {
+		font-size: 20px
+	}
+
+	.faq__wrapper {
+		gap: 16px
+	}
+
+	.faq__question-text {
+		font-size: 16px
+	}
+
+	.faq__answer-text {
+		font-size: 14px
+	}
+
+	.reviews {
+		gap: 10px
+	}
+
+	.reviews__title {
+		font-size: 20px
+	}
+
+	.reviews__wrapper {
+		gap: 16px
+	}
+
+	.reviews__header {
+		flex-direction: column;
+		align-items: flex-start
+	}
+
+	.reviews__user {
+		width: 100%
+	}
+
+	.reviews__user-name {
+		font-size: 16px
+	}
+
+	.reviews__text {
+		font-size: 14px
+	}
+
+	.reviews__rating {
+		font-size: 20px
+	}
+
+	.footer {
+		padding-top: 24px;
+		padding-bottom: calc(24px + var(--height-mobile-bar))
+	}
+
+	.footer__apps {
+		display: none
+	}
+
+	.footer__links {
+		gap: 12px
+	}
+
+	.footer__right {
+		gap: 20px
+	}
+
+	.footer__description {
+		flex-direction: column;
+		gap: 20px
+	}
+
+	.footer__bottom {
+		flex-direction: column
+	}
+
+	.mobile-bar {
+		display: block
+	}
+
+	.ctr-btn {
+		font-size: 16px;
+		height: 44px
+	}
+
+	.ctr-btn--xl {
+		height: 48px;
+		font-size: 16px
+	}
+}
+
+@media (max-width:600px) {
+	.vip-status-list__container {
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-behavior: smooth;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none
+	}
+
+	.vip-status-list__container::-webkit-scrollbar {
+		display: none
+	}
+
+	.vip-status-list__container .swiper-wrapper {
+		gap: 8px;
+		width: max-content
+	}
+
+	.vip-status-list__nav {
+		display: none
+	}
+
+	.boost-wrap__container {
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-behavior: smooth;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none
+	}
+
+	.boost-wrap__container::-webkit-scrollbar {
+		display: none
+	}
+
+	.boost-wrap__levels {
+		gap: var(--boost-levels-gap);
+		width: max-content
+	}
+
+	.achive-common {
+		grid-template-columns: repeat(6, 1fr)
+	}
+
+	.achive-common__item:nth-child(1) {
+		grid-column: span 6
+	}
+
+	.achive-common__item:nth-child(2),
+	.achive-common__item:nth-child(3),
+	.achive-common__item:nth-child(4),
+	.achive-common__item:nth-child(5) {
+		grid-column: span 3
+	}
+
+	.achive-common__item:nth-child(2) .achive-common__card--xl {
+		display: none
+	}
+
+	.achive-common__item:nth-child(2) .achive-common__card--sm {
+		display: block
+	}
 }
 
 @media (max-width:599px) {
