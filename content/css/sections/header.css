@@ -163,45 +163,45 @@
 
 .header__auth .tab-btn--header-secondary {
     background:
-            linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%) border-box;
+        linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%) border-box;
     color: #ffffff;
 }
 
 .header__auth .tab-btn--header-secondary:hover {
     background:
-            linear-gradient(180deg, rgba(67, 55, 57, 1) 0%, rgba(79, 64, 67, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%) border-box;
+        linear-gradient(180deg, rgba(67, 55, 57, 1) 0%, rgba(79, 64, 67, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%) border-box;
     transform: translateY(-1px);
 }
 
 .header__auth .tab-btn--header-secondary:active {
     background:
-            linear-gradient(180deg, rgba(50, 41, 43, 1) 0%, rgba(67, 55, 57, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%) border-box;
+        linear-gradient(180deg, rgba(50, 41, 43, 1) 0%, rgba(67, 55, 57, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%) border-box;
     transform: translateY(0);
 }
 
 .header__auth .tab-btn--header-primary {
     background:
-            linear-gradient(180deg, rgba(23, 114, 242, 1) 0%, rgba(81, 149, 246, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%) border-box;
+        linear-gradient(180deg, rgba(23, 114, 242, 1) 0%, rgba(81, 149, 246, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%) border-box;
     box-shadow: 0px 4px 16px rgba(13, 104, 232, 0.24);
     color: #ffffff;
 }
 
 .header__auth .tab-btn--header-primary:hover {
     background:
-            linear-gradient(180deg, rgba(11, 87, 193, 1) 0%, rgba(23, 114, 242, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.64) 100%) border-box;
+        linear-gradient(180deg, rgba(11, 87, 193, 1) 0%, rgba(23, 114, 242, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.64) 100%) border-box;
     box-shadow: 0px 6px 20px rgba(13, 104, 232, 0.28);
     transform: translateY(-1px);
 }
 
 .header__auth .tab-btn--header-primary:active {
     background:
-            linear-gradient(180deg, rgba(7, 61, 135, 1) 0%, rgba(11, 87, 193, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%) border-box;
+        linear-gradient(180deg, rgba(7, 61, 135, 1) 0%, rgba(11, 87, 193, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%) border-box;
     box-shadow: 0px 3px 14px rgba(13, 104, 232, 0.2);
     transform: translateY(0);
 }
@@ -214,24 +214,24 @@
     gap: 0;
     justify-content: center;
     background:
-            linear-gradient(180deg, rgba(246, 136, 19, 1) 0%, rgba(248, 156, 58, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%) border-box;
+        linear-gradient(180deg, rgba(246, 136, 19, 1) 0%, rgba(248, 156, 58, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%) border-box;
     box-shadow: 0px 4px 24px rgba(215, 177, 152, 0.24);
     color: #ffffff;
 }
 
 .header__auth .tab-btn--header-menu:hover {
     background:
-            linear-gradient(180deg, rgba(239, 130, 17, 1) 0%, rgba(248, 156, 58, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.72) 100%) border-box;
+        linear-gradient(180deg, rgba(239, 130, 17, 1) 0%, rgba(248, 156, 58, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.72) 100%) border-box;
     box-shadow: 0px 6px 28px rgba(215, 177, 152, 0.32);
     transform: translateY(-1px);
 }
 
 .header__auth .tab-btn--header-menu:active {
     background:
-            linear-gradient(180deg, rgba(229, 120, 12, 1) 0%, rgba(243, 150, 54, 1) 100%) padding-box,
-            linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%) border-box;
+        linear-gradient(180deg, rgba(229, 120, 12, 1) 0%, rgba(243, 150, 54, 1) 100%) padding-box,
+        linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%) border-box;
     box-shadow: 0px 4px 24px rgba(215, 177, 152, 0.2);
     transform: translateY(0);
 }

@@ -71,30 +71,25 @@
 
 /* ≤1599 */
 @media (max-width: 1599px) {
-    .login-gate {
-    }
+    .login-gate {}
 }
 
 /* ≤1439 */
 @media (max-width: 1439px) {
-    .login-gate {
-    }
-    
-    .login-gate__bg {
-    }
+    .login-gate {}
+
+    .login-gate__bg {}
 }
 
 /* ≤1279 */
 @media (max-width: 1279px) {
-    .login-gate {
-    }
-    
+    .login-gate {}
+
     .login-gate__title {
         font-size: 28px;
     }
-    
-    .login-gate__bg {
-    }
+
+    .login-gate__bg {}
 }
 
 /* ≤959 */
@@ -102,19 +97,18 @@
     .login-gate {
         height: 250px;
     }
-    
+
     .login-gate__title {
         font-size: 24px;
         line-height: 1.3em;
     }
-    
+
     .login-gate__description {
         font-size: 15px;
         max-width: 480px;
     }
-    
-    .login-gate__bg {
-    }
+
+    .login-gate__bg {}
 }
 
 /* ≤599 */
@@ -122,20 +116,18 @@
     .login-gate {
         height: 200px;
     }
-    
+
     .login-gate__title {
         font-size: 20px;
     }
-    
+
     .login-gate__description {
         font-size: 14px;
         line-height: 1.4em;
         max-width: 100%;
     }
-    
-    .login-gate__bg {
 
-    }
+    .login-gate__bg {}
 }
 
 /*
@@ -160,4 +152,3 @@ HTML разметка:
   </a>
 </section>
 */
-

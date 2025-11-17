@@ -22,9 +22,9 @@
     border-radius: 16px;
     overflow: hidden;
     position: relative;
-    
+
     /* Градиентный фон */
-    background: 
+    background:
         linear-gradient(-69deg, rgba(44, 36, 37, 0.2) 83%, rgba(44, 36, 37, 1) 100%),
         linear-gradient(24deg, rgba(44, 36, 37, 0.2) 37%, rgba(44, 36, 37, 1) 71%),
         linear-gradient(-1deg, rgba(198, 144, 108, 0.2) 0%, rgba(15, 9, 6, 0) 50%),
@@ -82,7 +82,7 @@
 
 .tour-grid__title {
     margin: 0;
-    
+
 
     font-weight: 500;
     font-size: 32px;
@@ -93,7 +93,7 @@
 
 .tour-grid__description {
     margin: 0;
-    
+
 
     font-weight: 500;
     font-size: 16px;
@@ -119,7 +119,7 @@
 
 .tour-grid__detail-label {
     margin: 0;
-    
+
 
     font-weight: 500;
     font-size: 16px;
@@ -129,7 +129,7 @@
 
 .tour-grid__detail-value {
     margin: 0;
-    
+
 
     font-weight: 500;
     font-size: 20px;
@@ -219,9 +219,9 @@
     flex: 1;
     border-radius: 16px;
     position: relative;
-    
+
     background: linear-gradient(180deg, rgba(56, 46, 48, 1) 0%, rgba(67, 55, 57, 1) 100%);
-    
+
     transition: background 0.3s ease;
 }
 
@@ -260,14 +260,14 @@
 .tour-grid__prize-place {
     margin: 0;
     flex: 1;
-    
+
 
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: -0.005em;
     color: #FFFFFF;
-    
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -275,7 +275,7 @@
 
 .tour-grid__prize-amount {
     margin: 0;
-    
+
 
     font-weight: 500;
     font-size: 20px;
@@ -294,8 +294,7 @@
 
 /* ≤1599 */
 @media (max-width: 1599px) {
-    .tour-grid {
-    }
+    .tour-grid {}
 }
 
 /* ≤1439 */
@@ -303,7 +302,7 @@
     .tour-grid {
         max-width: 100%;
     }
-    
+
     .tour-grid__title {
         font-size: 28px;
     }
@@ -319,25 +318,25 @@
     .tour-grid__main {
         grid-template-columns: 1fr;
     }
-    
+
     .tour-grid__image-wrapper {
         order: 1;
         padding: 8px 8px 0;
     }
-    
+
     .tour-grid__content {
         order: 2;
         gap: 32px;
         padding: 20px 20px 24px;
     }
-    
+
     .tour-grid__prizes {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 8px;
         width: 100%;
     }
-    
+
     .tour-grid__prize {
         display: flex;
         align-items: center;
@@ -347,38 +346,38 @@
         height: 40px;
         border-radius: 12px;
     }
-    
+
     .tour-grid__prize:nth-child(1),
     .tour-grid__prize:nth-child(2) {
         grid-column: span 2;
     }
-    
+
     .tour-grid__prize:nth-child(3) {
         grid-column: span 3;
     }
-    
+
     .tour-grid__prize-info {
         gap: 8px;
         flex: 0 1 auto;
     }
-    
+
     .tour-grid__prize-icon {
         width: 24px;
         height: 24px;
     }
-    
+
     .tour-grid__prize-place {
         font-size: 16px;
         line-height: 1.25;
     }
-    
+
     .tour-grid__prize-amount {
         font-size: 16px;
         line-height: 1.25;
         font-weight: 600;
         flex-shrink: 0;
     }
-    
+
     .tour-grid__all-places {
         grid-column: span 1;
         width: 100%;
@@ -393,18 +392,18 @@
         min-height: unset;
         height: 200px;
     }
-    
+
     .tour-grid__prizes {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
-    
+
     .tour-grid__prize {
         grid-column: 1 / -1;
         width: 100%;
     }
-    
+
     .tour-grid__all-places {
         grid-column: 1 / -1;
         width: 100%;
@@ -422,6 +421,3 @@
         display: none;
     }
 }
-
-
-

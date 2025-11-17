@@ -87,11 +87,11 @@
     height: 280px;
     border-radius: 16px;
     background:
-            linear-gradient(268deg, rgba(44, 36, 37, 0.2) 74%, rgba(44, 36, 37, 1) 100%),
-            linear-gradient(90deg, rgba(44, 36, 37, 0.2) 73%, rgba(44, 36, 37, 1) 100%),
-            linear-gradient(-4deg, rgba(198, 144, 108, 0.2) 0%, rgba(15, 9, 6, 0) 42%),
-            linear-gradient(177deg, rgba(198, 144, 108, 0.2) 0%, rgba(198, 144, 108, 0) 59%),
-            linear-gradient(180deg, rgba(44, 36, 37, 1) 0%, rgba(50, 41, 43, 1) 100%);
+        linear-gradient(268deg, rgba(44, 36, 37, 0.2) 74%, rgba(44, 36, 37, 1) 100%),
+        linear-gradient(90deg, rgba(44, 36, 37, 0.2) 73%, rgba(44, 36, 37, 1) 100%),
+        linear-gradient(-4deg, rgba(198, 144, 108, 0.2) 0%, rgba(15, 9, 6, 0) 42%),
+        linear-gradient(177deg, rgba(198, 144, 108, 0.2) 0%, rgba(198, 144, 108, 0) 59%),
+        linear-gradient(180deg, rgba(44, 36, 37, 1) 0%, rgba(50, 41, 43, 1) 100%);
 }
 
 .achive-common__card::before {
@@ -249,12 +249,12 @@
     height: 3px;
     background: linear-gradient(11deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 99%, rgba(255, 255, 255, 0) 100%);
     box-shadow:
-            1.72px -0.82px 5.31px 0px rgba(255, 255, 255, 0.24),
-            7.56px -3.63px 10.99px 0px rgba(255, 255, 255, 0.39),
-            18.56px -8.9px 21.92px 0px rgba(255, 255, 255, 0.5),
-            35.75px -17.15px 42.96px 0px rgba(255, 255, 255, 0.6),
-            60.15px -28.86px 78.99px 0px rgba(255, 255, 255, 0.75),
-            92.8px -44.52px 134.87px 0px rgba(255, 255, 255, 0.99);
+        1.72px -0.82px 5.31px 0px rgba(255, 255, 255, 0.24),
+        7.56px -3.63px 10.99px 0px rgba(255, 255, 255, 0.39),
+        18.56px -8.9px 21.92px 0px rgba(255, 255, 255, 0.5),
+        35.75px -17.15px 42.96px 0px rgba(255, 255, 255, 0.6),
+        60.15px -28.86px 78.99px 0px rgba(255, 255, 255, 0.75),
+        92.8px -44.52px 134.87px 0px rgba(255, 255, 255, 0.99);
     transition: width 0.3s ease;
 }
 
@@ -421,12 +421,10 @@
 
 .achive-common__card:hover .achive-common__card-progress-fill {
     box-shadow:
-            1.72px -0.82px 5.31px 0px rgba(255, 255, 255, 0.3),
-            7.56px -3.63px 10.99px 0px rgba(255, 255, 255, 0.45),
-            18.56px -8.9px 21.92px 0px rgba(255, 255, 255, 0.6),
-            35.75px -17.15px 42.96px 0px rgba(255, 255, 255, 0.7),
-            60.15px -28.86px 78.99px 0px rgba(255, 255, 255, 0.85),
-            92.8px -44.52px 134.87px 0px rgba(255, 255, 255, 1);
+        1.72px -0.82px 5.31px 0px rgba(255, 255, 255, 0.3),
+        7.56px -3.63px 10.99px 0px rgba(255, 255, 255, 0.45),
+        18.56px -8.9px 21.92px 0px rgba(255, 255, 255, 0.6),
+        35.75px -17.15px 42.96px 0px rgba(255, 255, 255, 0.7),
+        60.15px -28.86px 78.99px 0px rgba(255, 255, 255, 0.85),
+        92.8px -44.52px 134.87px 0px rgba(255, 255, 255, 1);
 }
-
-

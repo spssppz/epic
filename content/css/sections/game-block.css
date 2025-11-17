@@ -53,11 +53,11 @@
     width: 36px;
     height: 36px;
     padding: 8px;
-    
+
     background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%);
     border-radius: 12px;
     border-image-source: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
-    
+
     cursor: pointer;
     transition: opacity 0.2s ease;
     position: relative;
@@ -105,10 +105,10 @@
     width: 100%;
     max-width: 221px;
     position: relative;
-    
+
     background: linear-gradient(180deg, rgba(44, 36, 37, 1) 0%, rgba(44, 36, 37, 1) 62%, rgba(79, 64, 67, 1) 100%);
     border-radius: 16px;
-    
+
     cursor: pointer;
     transition: background 0.3s ease;
     overflow: visible;
@@ -416,16 +416,13 @@
    ======================================== */
 
 /* ≤1599 */
-@media (max-width: 1599px) {
-}
+@media (max-width: 1599px) {}
 
 /* ≤1439 */
-@media (max-width: 1439px) {
-}
+@media (max-width: 1439px) {}
 
 /* ≤1279 */
-@media (max-width: 1279px) {
-}
+@media (max-width: 1279px) {}
 
 /* ≤959 */
 @media (max-width: 959px) {
@@ -473,31 +470,31 @@
         height: 8px;
         padding: 0 8px;
     }
-    
+
     .game-block__controls {
         margin-bottom: 16px;
     }
-    
+
     .game-block__header {
         font-size: 18px;
     }
-    
+
     .game-block__header-icon {
         width: 20px;
         height: 20px;
     }
-    
+
     .game-block__nav-button {
         width: 32px;
         height: 32px;
         padding: 6px;
     }
-    
+
     .game-block__nav-icon {
         width: 18px;
         height: 18px;
     }
-    
+
     /* Нативный скролл на мобилке */
     .game-block__container {
         overflow-x: auto;
@@ -506,16 +503,16 @@
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
     }
-    
+
     .game-block__container::-webkit-scrollbar {
         display: none;
     }
-    
+
     .game-block__grid {
         gap: 12px;
         width: max-content;
     }
-    
+
     .game-block__nav {
         display: none;
     }
@@ -579,4 +576,3 @@ HTML разметка:
 - При hover появляются декоративные звезды снизу
 - Кнопка избранного появляется при hover, класс .is-active делает её видимой всегда
 */
-

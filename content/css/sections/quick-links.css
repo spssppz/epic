@@ -23,10 +23,10 @@
     justify-content: space-between;
     padding: 16px;
     position: relative;
-    
+
     background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(67, 55, 57, 1) 100%);
     border-radius: 16px;
-    
+
     cursor: pointer;
     user-select: none;
     list-style: none;
@@ -59,7 +59,7 @@
 .quick-links__title {
     margin: 0;
     padding: 0;
-    
+
 
     font-weight: 500;
     font-size: 20px;
@@ -95,10 +95,10 @@
     margin-top: 8px;
     padding: 16px;
     position: relative;
-    
+
     background: linear-gradient(180deg, rgba(39, 32, 33, 1) 0%, rgba(44, 36, 37, 1) 100%);
     border-radius: 16px;
-    
+
     animation: fadeIn 0.3s ease;
 }
 
@@ -121,6 +121,7 @@
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -143,11 +144,11 @@
     align-items: center;
     gap: 8px;
     padding: 12px;
-    
+
     background: transparent;
     border: none;
     border-radius: 12px;
-    
+
     text-decoration: none;
     cursor: pointer;
     transition: background 0.2s ease;
@@ -173,14 +174,14 @@
 .quick-links__item-text {
     flex: 1;
     margin: 0;
-    
+
 
     font-weight: 500;
     font-size: 16px;
     line-height: 1.25;
     text-align: left;
     color: #CECACA;
-    
+
     transition: color 0.2s ease;
 }
 
@@ -193,8 +194,7 @@
    ======================================== */
 
 /* ≤1599 */
-@media (max-width: 1599px) {
-}
+@media (max-width: 1599px) {}
 
 /* ≤1439 */
 @media (max-width: 1439px) {
@@ -204,15 +204,14 @@
 }
 
 /* ≤1279 */
-@media (max-width: 1279px) {
-}
+@media (max-width: 1279px) {}
 
 /* ≤959 */
 @media (max-width: 959px) {
     .quick-links__title {
         font-size: 18px;
     }
-    
+
     .quick-links__item-text {
         font-size: 15px;
     }
@@ -223,24 +222,24 @@
     .quick-links__header {
         padding: 12px;
     }
-    
+
     .quick-links__title {
         font-size: 16px;
     }
-    
+
     .quick-links__content {
         padding: 12px;
     }
-    
+
     /* Одна колонка на мобильных */
     .quick-links__grid {
         grid-template-columns: 1fr;
     }
-    
+
     .quick-links__item {
         padding: 10px;
     }
-    
+
     .quick-links__item-text {
         font-size: 14px;
     }
@@ -287,4 +286,3 @@ HTML разметка:
   </details>
 </div>
 */
-
