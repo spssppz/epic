@@ -31,8 +31,7 @@
   <link rel="preload" href="content/fonts/Gilroy-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="content/fonts/Gilroy-Semibold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="content/fonts/Gilroy-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <style amp-custom>
-button,hr,input{overflow:visible }
+  <style amp-custom>button,hr,input{overflow:visible }
  [type=checkbox]{box-sizing:border-box;padding:0 }
  html{line-height:1.15;-webkit-text-size-adjust:100% }
  body{margin:0 }
@@ -211,62 +210,6 @@ button,hr,input{overflow:visible }
  .quick-links__item-icon{display:flex;width:24px;height:24px;flex-shrink:0;background:linear-gradient(180deg,rgba(251,206,157,1) 0,rgba(249,176,98,1) 100%);border-radius:4px;align-items:center;justify-content:center }
  .quick-links__item-text{flex:1;margin:0;font-weight:500;font-size:16px;line-height:1.25;text-align:left;color:#cecaca;transition:color .2s ease }
  .quick-links__item:hover .quick-links__item-text{color:#fff }
- .vip-status-list__controls{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:20px }
- .vip-status-list__header-head{display:flex;align-items:center;gap:8px }
- .vip-status-list__header{font-weight:500;font-size:20px;line-height:1.2;letter-spacing:-.5%;color:#fff;margin:0 }
- .vip-status-list__mid{display:flex;align-items:center;row-gap:4px;column-gap:16px;flex-wrap:wrap }
- .vip-status-list__mid-wrap{display:flex;flex-direction:row;align-items:center;gap:8px }
- .vip-status-list__mid-label{font-weight:500;font-size:16px;line-height:1.25em;color:#fff;white-space:nowrap }
- .vip-status-list__mid-status{display:flex;align-items:center;gap:6px }
- .vip-status-list__mid-icon{width:24px;height:24px;display:block;flex-shrink:0 }
- .vip-status-list__mid-name{font-weight:500;font-size:16px;line-height:1.25em;color:#fff;white-space:nowrap }
- .vip-status-list__mid-separator{width:1px;height:12px;background:rgba(255,255,255,.16);flex-shrink:0 }
- .vip-status-list__nav{position:relative;z-index:1;display:flex;align-items:center;gap:8px }
- .vip-status-list__nav-button{display:flex;justify-content:center;align-items:center;width:36px;height:36px;padding:8px;background:linear-gradient(180deg,rgba(79,64,67,1) 0,rgba(90,73,76,1) 100%);border-radius:12px;cursor:pointer;transition:opacity .2s ease;position:relative;border:none }
- .vip-status-list__nav-button::before{content:'';position:absolute;inset:0;border-radius:12px;padding:1px;background:linear-gradient(180deg,rgba(212,199,196,.32) 0,rgba(212,199,196,.16) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none }
- .vip-status-list__nav-button:hover{opacity:.8 }
- .vip-status-list__nav-button:active{opacity:.6 }
- .vip-status-list__nav-icon{width:20px;height:20px;display:block }
- .vip-status-list__container{display:flex;gap:12px;overflow-x:auto;width:100%;padding-top:40px;margin-top:-40px;scroll-behavior:smooth }
- .vip-status-list__container::-webkit-scrollbar{display:none }
- .vip-status-list__container{-ms-overflow-style:none;scrollbar-width:none }
- .vip-status-list{width:100% }
- .vip-status-list__item{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;width:224px;flex-shrink:0;--vip-bg-inactive-start:rgba(69,48,33,0.8);--vip-bg-inactive-end:rgba(48,33,23,1);--vip-bg-active-start:rgba(157,84,6,1);--vip-bg-active-end:rgba(118,63,4,1);--vip-glow-color:rgba(155,83,6,1) }
- .vip-status-list__item[data-status=new]{--vip-bg-inactive-start:rgba(51,92,70,0.8);--vip-bg-inactive-end:rgba(29,53,40,1);--vip-bg-active-start:rgba(67,157,108,1);--vip-bg-active-end:rgba(37,86,59,1);--vip-glow-color:rgba(67,157,108,1) }
- .vip-status-list__item[data-status=bronze]{--vip-bg-inactive-start:rgba(69,48,33,0.8);--vip-bg-inactive-end:rgba(48,33,23,1);--vip-bg-active-start:rgba(157,84,6,1);--vip-bg-active-end:rgba(118,63,4,1);--vip-glow-color:rgba(155,83,6,1) }
- .vip-status-list__item[data-status=silver]{--vip-bg-inactive-start:rgba(46,44,78,0.8);--vip-bg-inactive-end:rgba(31,29,52,1);--vip-bg-active-start:rgba(62,62,163,1);--vip-bg-active-end:rgba(34,34,89,1);--vip-glow-color:rgba(97,97,204,1) }
- .vip-status-list__item[data-status=gold]{--vip-bg-inactive-start:rgba(84,73,59,0.8);--vip-bg-inactive-end:rgba(48,42,33,1);--vip-bg-active-start:rgba(175,114,9,1);--vip-bg-active-end:rgba(177,95,6,1);--vip-glow-color:rgba(173,113,7,1) }
- .vip-status-list__item[data-status=platinum]{--vip-bg-inactive-start:rgba(61,82,77,0.8);--vip-bg-inactive-end:rgba(35,47,44,1);--vip-bg-active-start:rgba(62,163,134,1);--vip-bg-active-end:rgba(34,89,73,1);--vip-glow-color:rgba(61,162,133,1) }
- .vip-status-list__item[data-status=diamond]{--vip-bg-inactive-start:rgba(70,60,82,0.8);--vip-bg-inactive-end:rgba(40,34,47,1);--vip-bg-active-start:rgba(104,62,163,1);--vip-bg-active-end:rgba(57,34,89,1);--vip-glow-color:rgba(103,61,160,1) }
- .vip-status-list__item[data-status=star]{--vip-bg-inactive-start:rgba(90,51,91,0.8);--vip-bg-inactive-end:rgba(51,29,52,1);--vip-bg-active-start:rgba(146,62,163,1);--vip-bg-active-end:rgba(80,34,89,1);--vip-glow-color:rgba(144,62,161,1) }
- .vip-status-list__item[data-status=silver-star]{--vip-bg-inactive-start:rgba(47,50,75,0.8);--vip-bg-inactive-end:rgba(31,34,50,1);--vip-bg-active-start:rgba(67,82,157,1);--vip-bg-active-end:rgba(37,45,86,1);--vip-glow-color:rgba(67,82,156,1) }
- .vip-status-list__item[data-status=golden-star]{--vip-bg-inactive-start:rgba(69,48,33,0.8);--vip-bg-inactive-end:rgba(59,33,22,1);--vip-bg-active-start:rgba(175,114,9,1);--vip-bg-active-end:rgba(139,59,24,1);--vip-glow-color:rgba(174,114,11,1) }
- .vip-status-list__item[data-status=epic-star]{--vip-bg-inactive-start:rgba(89,33,60,0.8);--vip-bg-inactive-end:rgba(59,22,40,1);--vip-bg-active-start:rgba(57,5,30,1);--vip-bg-active-end:rgba(132,11,69,1);--vip-glow-color:rgba(152,55,124,1) }
- .vip-status-list__card{position:relative;width:100%;height:265px;border-radius:16px;border:1px solid transparent;overflow:visible;background:linear-gradient(84deg,rgba(21,19,21,0) 81%,rgba(21,19,21,.08) 99%),linear-gradient(-78deg,rgba(21,19,21,0) 80%,rgba(21,19,21,.08) 100%),linear-gradient(180deg,var(--vip-bg-inactive-start) 0,var(--vip-bg-inactive-end) 100%);background-clip:padding-box;transition:background .3s ease }
- .vip-status-list__card::before{content:'';position:absolute;inset:0;border-radius:16px;padding:1px;background:linear-gradient(180deg,rgba(212,199,196,.32) 0,rgba(212,199,196,.16) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none }
- .vip-status-list__title{font-weight:500;font-size:20px;line-height:1.2em;letter-spacing:-.5%;color:#fff;text-align:center;margin:20px auto 0;transition:font-size .3s ease,margin-top .3s ease }
- .vip-status-list__icon{position:absolute;left:50%;top:64px;transform:translateX(-50%);width:177px;height:115px;object-fit:cover;filter:drop-shadow(0 4px 24px rgba(21,19,21,.24));transition:top .3s ease,width .3s ease,height .3s ease }
- .vip-status-list__reward-wrap{position:absolute;top:197px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px }
- .vip-status-list__reward-label{position:relative;font-weight:500;font-size:16px;line-height:1.25em;color:rgba(255,255,255,.64);text-align:center;z-index:1;transition:color .3s ease }
- .vip-status-list__reward-value{position:relative;font-weight:600;font-size:18px;line-height:1.33em;color:#f9b062;text-align:center;transition:color .3s ease }
- .vip-status-list__status{font-weight:500;font-size:14px;line-height:1.43em;color:rgba(255,255,255,.64);text-align:center;width:100% }
- .vip-status-list__decoration-bottom{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);width:232px;height:51px;opacity:0;transition:opacity .3s ease;pointer-events:none;z-index:0 }
- .vip-status-list__decoration-time{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);width:232px;height:51px;opacity:0;transition:opacity .3s ease;pointer-events:none;z-index:1 }
- .vip-status-list__item:hover .vip-status-list__card{background:linear-gradient(180deg,var(--vip-bg-active-start) 0,var(--vip-bg-active-end) 100%) }
- .vip-status-list__item:hover .vip-status-list__decoration-bottom{opacity:1 }
- .vip-status-list__item:hover .vip-status-list__decoration-time{opacity:1 }
- .vip-status-list__item:hover .vip-status-list__card::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:67px;height:67px;border-radius:50%;background:0 0;pointer-events:none }
- .vip-status-list__item:hover .vip-status-list__title{font-size:24px;margin-top:106px }
- .vip-status-list__item:hover .vip-status-list__icon{top:-24px;width:200px;height:130px }
- .vip-status-list__item:hover .vip-status-list__reward-label,.vip-status-list__item:hover .vip-status-list__reward-value{color:#fff }
- @media (max-width:960px){.vip-status-list__controls{flex-wrap:wrap }
- .vip-status-list__header-head{flex:1 1 auto;order:0 }
- .vip-status-list__nav{flex:0 0 auto;order:1 }
- .vip-status-list__mid{flex:1 1 100%;order:2;justify-content:flex-start }
- }
- .vip-status-list__container{overflow:hidden;position:relative }
- .vip-status-list__container .swiper-wrapper{display:flex;transition-property:transform;gap:10px;overflow:auto;scrollbar-width:none }
- .vip-status-list__container .swiper-wrapper::-webkit-scrollbar{display:none }
  .boost-wrap{--boost-levels-gap:8px;width:100% }
  .boost-wrap__header{display:flex;align-items:center;gap:8px;margin-bottom:24px;width:100% }
  .boost-wrap__title{font-weight:500;font-size:20px;line-height:1.2em;letter-spacing:-.005em;color:#fff;flex:1 }
@@ -315,11 +258,7 @@ button,hr,input{overflow:visible }
  .achive-common__item:nth-child(2) .achive-common__card--xl{display:flex }
  .achive-common__item:nth-child(2) .achive-common__card--sm{display:none }
  }
- @media (max-width:600px){.vip-status-list__container{overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none }
- .vip-status-list__container::-webkit-scrollbar{display:none }
- .vip-status-list__container .swiper-wrapper{gap:8px;width:max-content }
- .vip-status-list__nav{display:none }
- .boost-wrap__container{overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none }
+ @media (max-width:600px){.boost-wrap__container{overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none }
  .boost-wrap__container::-webkit-scrollbar{display:none }
  .boost-wrap__levels{gap:var(--boost-levels-gap);width:max-content }
  .achive-common{grid-template-columns:repeat(6,1fr) }
@@ -1734,211 +1673,6 @@ button,hr,input{overflow:visible }
         </div>
       </section>
 
-      <!-- 👑 10. VIP статусы -->
-      <section id="vip-statuses" class="vip-status-list-section" aria-labelledby="vip-status-heading">
-        <div class="vip-status-list">
-          <!-- Заголовок и кнопки управления -->
-          <div class="vip-status-list__controls">
-            <div class="vip-status-list__header-head">
-              <h2 id="vip-status-heading" class="vip-status-list__header">VIP Status Program</h2>
-            </div>
-
-            <div class="vip-status-list__mid">
-              <div class="vip-status-list__mid-wrap">
-                <span class="vip-status-list__mid-label">Your Status</span>
-                <div class="vip-status-list__mid-status">
-                  <img src="content/images/vip-status-list/shield-1.svg" alt="shield-1" width="24" height="24" loading="lazy" class="vip-status-list__mid-icon">
-                  <span class="vip-status-list__mid-name">New</span>
-                </div>
-              </div>
-              <div class="vip-status-list__mid-separator"></div>
-              <div class="vip-status-list__mid-wrap">
-                <span class="vip-status-list__mid-label">Next status</span>
-                <div class="vip-status-list__mid-status">
-                  <img src="content/images/vip-status-list/shield-2.svg" alt="shield-2" width="24" height="24" loading="lazy" class="vip-status-list__mid-icon">
-                  <span class="vip-status-list__mid-name">Bronze</span>
-                </div>
-              </div>
-            </div>
-
-            <nav class="vip-status-list__nav" aria-label="VIP Status navigation">
-              <button class="vip-status-list__nav-button" id="vip-status-nav-prev" aria-label="Previous">
-                <img src="content/images/vip-status-list/arrow-left.svg" alt="" width="24" height="24" loading="lazy" class="vip-status-list__nav-icon">
-              </button>
-              <button class="vip-status-list__nav-button" id="vip-status-nav-next" aria-label="Next">
-                <img src="content/images/vip-status-list/arrow-right.svg" alt="" width="24" height="24" loading="lazy" class="vip-status-list__nav-icon">
-              </button>
-            </nav>
-          </div>
-
-          <div class="vip-status-list__container swiper">
-            <div class="swiper-wrapper">
-
-              <!-- New -->
-              <div class="vip-status-list__item swiper-slide" data-status="new">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">New</h3>
-                  <img src="content/images/vip-status-list/vip-new-icon.webp" alt="New VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">2 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Bronze -->
-              <div class="vip-status-list__item swiper-slide" data-status="bronze">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Bronze</h3>
-                  <img src="content/images/vip-status-list/vip-bronze-icon.webp" alt="Bronze VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">5 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Silver -->
-              <div class="vip-status-list__item swiper-slide" data-status="silver">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Silver</h3>
-                  <img src="content/images/vip-status-list/vip-silver-icon.webp" alt="Silver VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">35 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Gold -->
-              <div class="vip-status-list__item swiper-slide" data-status="gold">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Gold</h3>
-                  <img src="content/images/vip-status-list/vip-gold-icon.webp" alt="Gold VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">150 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Platinum -->
-              <div class="vip-status-list__item swiper-slide" data-status="platinum">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Platinum</h3>
-                  <img src="content/images/vip-status-list/vip-platinum-icon.webp" alt="Platinum VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">350 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Diamond -->
-              <div class="vip-status-list__item swiper-slide" data-status="diamond">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Diamond</h3>
-                  <img src="content/images/vip-status-list/vip-diamond-icon.webp" alt="Diamond VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">750 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Star -->
-              <div class="vip-status-list__item swiper-slide" data-status="star">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Star</h3>
-                  <img src="content/images/vip-status-list/vip-star-icon.webp" alt="Star VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">1000 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Silver Star -->
-              <div class="vip-status-list__item swiper-slide" data-status="silver-star">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Silver Star</h3>
-                  <img src="content/images/vip-status-list/vip-silver-star-icon.webp" alt="Silver Star VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">1350 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Golden Star -->
-              <div class="vip-status-list__item swiper-slide" data-status="golden-star">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Golden Star</h3>
-                  <img src="content/images/vip-status-list/vip-golden-star-icon.webp" alt="Golden Star VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">1700 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Get previous status</p>
-              </div>
-
-              <!-- Epic Star -->
-              <div class="vip-status-list__item swiper-slide" data-status="epic-star">
-                <a class="vip-status-list__card" href="ipc.html" rel="nofollow, noopener, noreferrer" target="_blank">
-                  <img class="vip-status-list__decoration-bottom" src="content/images/vip-status-list/decoration-stars-bottom.svg" alt="" width="232" height="51" loading="lazy">
-                  <img class="vip-status-list__decoration-time" src="content/images/vip-status-list/load-time.svg" alt="" width="232" height="51" loading="lazy">
-
-                  <h3 class="vip-status-list__title">Epic Star</h3>
-                  <img src="content/images/vip-status-list/vip-epic-star-icon.webp" alt="Epic Star VIP Status" class="vip-status-list__icon" loading="lazy" width="354" height="230">
-                  <div class="vip-status-list__reward-wrap">
-                    <span class="vip-status-list__reward-label">Reward</span>
-                    <span class="vip-status-list__reward-value">2000 USD</span>
-                  </div>
-                </a>
-                <p class="vip-status-list__status">Top level achieved!</p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- 🏆 11. boost wrap -->
       <section id="boost-wrap" class="boost-wrap" aria-label="Boost levels with rewards">
         <!-- Header -->
@@ -2959,7 +2693,7 @@ button,hr,input{overflow:visible }
         <h3 class="sidebar__section-title">Other</h3>
         <nav class="sidebar__other-list">
           <div class="sidebar__other-item">
-            <a href="#promotions" rel="nofollow noopener noreferrer" target="_blank" aria-label="Promotions" class="sidebar__other-link">
+            <a href="#" rel="nofollow noopener noreferrer" target="_blank" aria-label="Promotions" class="sidebar__other-link">
               <div class="sidebar__other-content">
                 <p class="sidebar__other-text">Promotions</p>
                 <img class="sidebar__other-icon" src="content/images/sidebar/icon-chevron-right.svg" alt="Arrow icon" loading="lazy" decoding="async">
@@ -2968,7 +2702,7 @@ button,hr,input{overflow:visible }
           </div>
 
           <div class="sidebar__other-item">
-            <a href="#support" rel="nofollow noopener noreferrer" target="_blank" aria-label="Support" class="sidebar__other-link">
+            <a href="#" rel="nofollow noopener noreferrer" target="_blank" aria-label="Support" class="sidebar__other-link">
               <div class="sidebar__other-content">
                 <p class="sidebar__other-text">Support</p>
                 <img class="sidebar__other-icon" src="content/images/sidebar/icon-chevron-right.svg" alt="Arrow icon" loading="lazy" decoding="async">
@@ -2977,7 +2711,7 @@ button,hr,input{overflow:visible }
           </div>
 
           <div class="sidebar__other-item">
-            <a href="#games-variety" rel="nofollow noopener noreferrer" target="_blank" aria-label="Settings" class="sidebar__other-link">
+            <a href="#" rel="nofollow noopener noreferrer" target="_blank" aria-label="Settings" class="sidebar__other-link">
               <div class="sidebar__other-content">
                 <p class="sidebar__other-text">Settings</p>
                 <img class="sidebar__other-icon" src="content/images/sidebar/icon-chevron-right.svg" alt="Arrow icon" loading="lazy" decoding="async">
