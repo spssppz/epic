@@ -38,7 +38,15 @@
       overflow: visible
     }
 
-    [type=checkbox] {
+    progress,
+    sub,
+    sup {
+      vertical-align: baseline
+    }
+
+    [type=checkbox],
+    [type=radio],
+    legend {
       box-sizing: border-box;
       padding: 0
     }
@@ -57,13 +65,56 @@
       display: block
     }
 
+    h1 {
+      font-size: 2em;
+      margin: .67em 0
+    }
+
     hr {
       box-sizing: content-box;
       height: 0
     }
 
+    code,
+    kbd,
+    pre,
+    samp {
+      font-family: monospace, monospace;
+      font-size: 1em
+    }
+
     a {
       background-color: transparent
+    }
+
+    abbr[title] {
+      border-bottom: none;
+      text-decoration: underline;
+      text-decoration: underline dotted
+    }
+
+    b,
+    strong {
+      font-weight: bolder
+    }
+
+    small {
+      font-size: 80%
+    }
+
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative
+    }
+
+    sub {
+      bottom: -.25em
+    }
+
+    sup {
+      top: -.5em
     }
 
     img {
@@ -71,31 +122,70 @@
     }
 
     button,
-    input {
+    input,
+    optgroup,
+    select,
+    textarea {
       font-family: inherit;
       font-size: 100%;
       line-height: 1.15;
       margin: 0
     }
 
-    button {
+    button,
+    select {
       text-transform: none
     }
 
     [type=button],
+    [type=reset],
+    [type=submit],
     button {
       -webkit-appearance: button
     }
 
     [type=button]::-moz-focus-inner,
+    [type=reset]::-moz-focus-inner,
+    [type=submit]::-moz-focus-inner,
     button::-moz-focus-inner {
       border-style: none;
       padding: 0
     }
 
     [type=button]:-moz-focusring,
+    [type=reset]:-moz-focusring,
+    [type=submit]:-moz-focusring,
     button:-moz-focusring {
       outline: ButtonText dotted 1px
+    }
+
+    fieldset {
+      padding: .35em .75em .625em
+    }
+
+    legend {
+      color: inherit;
+      display: table;
+      max-width: 100%;
+      white-space: normal
+    }
+
+    textarea {
+      overflow: auto
+    }
+
+    [type=number]::-webkit-inner-spin-button,
+    [type=number]::-webkit-outer-spin-button {
+      height: auto
+    }
+
+    [type=search] {
+      -webkit-appearance: textfield;
+      outline-offset: -2px
+    }
+
+    [type=search]::-webkit-search-decoration {
+      -webkit-appearance: none
     }
 
     ::-webkit-file-upload-button {
@@ -105,6 +195,11 @@
 
     summary {
       display: list-item
+    }
+
+    [hidden],
+    template {
+      display: none
     }
 
     :root {
@@ -324,6 +419,25 @@
       position: relative;
     }
 
+    .header__menu-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px;
+      min-height: 40px;
+      border-radius: 12px;
+      font-family: 'Gilroy', sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: -0.1px;
+      color: rgba(255, 255, 255, 0.64);
+      text-decoration: none;
+      transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .header__menu-link:hover,
     .header__menu-link:focus-visible {
       color: #ffffff;
     }
@@ -333,8 +447,30 @@
       outline-offset: 4px;
     }
 
+    .header__menu-icon {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header__menu-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: opacity 0.2s ease;
+      opacity: 0.64;
+    }
+
+    .header__menu-link:hover .header__menu-icon img,
     .header__menu-link:focus-visible .header__menu-icon img {
       opacity: 1;
+    }
+
+    .header__menu-label {
+      white-space: nowrap;
     }
 
     .header__actions {
@@ -501,6 +637,11 @@
 
       .header__row {
         /*gap: 80px;*/
+      }
+
+      .header__menu-link {
+        font-size: 18px;
+        min-height: 36px;
       }
     }
 
@@ -688,6 +829,13 @@
     }
 
     /* Заголовок маленького баннера */
+    .main-banner__item--small .main-banner__title {
+      font-size: 48px;
+      line-height: 1.17;
+      letter-spacing: -0.01em;
+      text-align: center;
+      text-shadow: 0px 0px 24px rgba(255, 200, 147, 0.24), 0px 0px 12px rgba(12, 10, 7, 0.6);
+    }
 
     /* Кнопка в маленьком баннере */
     .main-banner__item--small .main-banner__button {
@@ -696,6 +844,12 @@
     }
 
     /* Элемент слайда для mobile версии */
+    .main-banner__slide {
+      height: 100%;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+    }
 
 
     /* ========================================
@@ -703,10 +857,13 @@
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
+    @media (max-width: 1439px) {}
 
     /* ≤1279 */
+    @media (max-width: 1279px) {}
 
     /* ≤959 */
     @media (max-width: 959px) {
@@ -824,6 +981,12 @@
       z-index: 10;
     }
 
+    .tab-panel__item-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
     /* Текст в табе */
     .tab-panel__item-text {
       display: flex;
@@ -835,10 +998,27 @@
     }
 
     /* Декоративные элементы для открытого таба */
+    .tab-panel__item-decoration {
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+    }
 
     /* Звезды слева */
+    .tab-panel__item-decoration--left {
+      left: 12px;
+      top: 14px;
+      width: 22px;
+      height: 36px;
+    }
 
     /* Звезды справа */
+    .tab-panel__item-decoration--right {
+      right: 12px;
+      top: 12px;
+      width: 18px;
+      height: 40px;
+    }
 
     /* ========================================
    TAB STATES - Состояния табов
@@ -854,10 +1034,48 @@
     }
 
     /* Open/Active состояние */
+    .tab-panel__item.is-open,
+    .tab-panel__item.is-active {
+      background: linear-gradient(180deg, rgba(162, 102, 63, 1) 0%, rgba(186, 122, 79, 1) 100%);
+      box-shadow: 0px 16px 100px 100px rgba(21, 19, 21, 0.52);
+      position: relative;
+    }
 
     /* Градиентная рамка через псевдоэлемент для активного таба */
+    .tab-panel__item.is-open::after,
+    .tab-panel__item.is-active::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      padding: 1px;
+      background: linear-gradient(180deg, rgba(251, 206, 157, 1) 0%, rgba(251, 206, 157, 0) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: 1;
+    }
 
     /* Эффект свечения для открытого таба */
+    .tab-panel__item.is-open::before,
+    .tab-panel__item.is-active::before {
+      content: '';
+      position: absolute;
+      left: 9.14px;
+      top: 8px;
+      width: 170.22px;
+      height: 111px;
+      background: linear-gradient(2deg, rgba(249, 176, 98, 1) 62%, rgba(250, 180, 107, 0) 100%);
+      filter: blur(32px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .tab-panel__item.is-open:hover,
+    .tab-panel__item.is-active:hover {
+      background: linear-gradient(180deg, rgba(148, 93, 58, 1) 0%, rgba(172, 113, 73, 1) 100%);
+    }
 
     /* ========================================
    SEPARATORS - Разделители
@@ -876,10 +1094,13 @@
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
+    @media (max-width: 1439px) {}
 
     /* ≤1279 */
+    @media (max-width: 1279px) {}
 
     /* ≤959 */
     @media (max-width: 959px) {
@@ -896,6 +1117,12 @@
       .tab-panel__item-icon {
         width: 24px;
         height: 24px;
+      }
+
+      .tab-panel__item.is-open::before,
+      .tab-panel__item.is-active::before {
+        left: 4.57px;
+        width: 85.11px;
       }
     }
 
@@ -1022,6 +1249,10 @@ HTML разметка:
       color: #FFFFFF;
     }
 
+    .game-categories__search-input::placeholder {
+      color: rgba(255, 255, 255, 0.48);
+    }
+
     /* ========================================
    PROVIDER SELECT - Выбор провайдера
    ======================================== */
@@ -1071,6 +1302,10 @@ HTML разметка:
       background: linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%);
     }
 
+    .game-categories__provider.is-open::before {
+      background: linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%);
+    }
+
     .game-categories__provider-text {
       flex: 1;
       text-align: left;
@@ -1084,6 +1319,10 @@ HTML разметка:
       height: 20px;
       flex-shrink: 0;
       transition: transform 0.3s ease;
+    }
+
+    .game-categories__provider.is-open .game-categories__provider-icon {
+      transform: rotate(180deg);
     }
 
     /* ========================================
@@ -1111,8 +1350,10 @@ HTML разметка:
    ======================================== */
 
     /* ≤1599px */
+    @media (max-width: 1599px) {}
 
     /* ≤1439px */
+    @media (max-width: 1439px) {}
 
     /* ≤1279px */
     @media (max-width: 1279px) {
@@ -1576,10 +1817,13 @@ HTML разметка:
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
+    @media (max-width: 1439px) {}
 
     /* ≤1279 */
+    @media (max-width: 1279px) {}
 
     /* ≤959 */
     @media (max-width: 959px) {
@@ -1833,6 +2077,7 @@ HTML разметка:
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
     @media (max-width: 1439px) {
@@ -1842,6 +2087,7 @@ HTML разметка:
     }
 
     /* ≤1279 */
+    @media (max-width: 1279px) {}
 
     /* ≤959 */
     @media (max-width: 959px) {
@@ -1890,25 +2136,104 @@ HTML разметка:
    ЗАГОЛОВКИ - Headings (H1-H6)
    ======================================== */
 
+    .info-text-block h1,
+    .info-text-block h2,
+    .info-text-block h3,
+    .info-text-block h4,
+    .info-text-block h5,
+    .info-text-block h6 {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+
+      font-weight: 500;
+      letter-spacing: -0.005em;
+    }
+
     /* H1 */
+    .info-text-block h1 {
+      font-size: 32px;
+      line-height: 1.25;
+    }
 
     /* H2 */
+    .info-text-block h2 {
+      font-size: 28px;
+      line-height: 1.29;
+    }
 
     /* H3 */
+    .info-text-block h3 {
+      font-size: 24px;
+      line-height: 1.33;
+    }
 
     /* H4 */
+    .info-text-block h4 {
+      font-size: 20px;
+      line-height: 1.2;
+    }
 
     /* H5 */
+    .info-text-block h5 {
+      font-size: 18px;
+      line-height: 1.22;
+    }
 
     /* H6 */
+    .info-text-block h6 {
+      font-size: 16px;
+      line-height: 1.25;
+    }
 
     /* ========================================
    ПАРАГРАФЫ - Paragraphs
    ======================================== */
 
+    .info-text-block p {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
     /* ========================================
    СПИСКИ - Lists (UL, OL)
    ======================================== */
+
+    .info-text-block ul,
+    .info-text-block ol {
+      margin: 0;
+      padding-left: 24px;
+
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .info-text-block ul li,
+    .info-text-block ol li {
+      margin-bottom: 2px;
+    }
+
+    .info-text-block ul li:last-child,
+    .info-text-block ol li:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-text-block ul {
+      list-style-type: disc;
+    }
+
+    .info-text-block ol {
+      list-style-type: decimal;
+    }
 
     .info-text-block ul li::marker,
     .info-text-block ol li::marker {}
@@ -1917,15 +2242,145 @@ HTML разметка:
    ТАБЛИЦЫ - Tables
    ======================================== */
 
+    .info-text-block table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .info-text-block table th {
+      padding: 12px 16px;
+      text-align: left;
+      border: 1px solid rgba(212, 199, 196, 0.2);
+
+      font-weight: 600;
+    }
+
+    .info-text-block table td {
+      padding: 12px 16px;
+      border: 1px solid rgba(212, 199, 196, 0.2);
+    }
+
     /* ========================================
    MEDIA QUERIES - Адаптивность (Desktop-first)
    ======================================== */
 
     /* ≤1279 */
+    @media (max-width: 1279px) {
+      .info-text-block h1 {
+        font-size: 28px;
+      }
+
+      .info-text-block h2 {
+        font-size: 24px;
+      }
+
+      .info-text-block h3 {
+        font-size: 20px;
+      }
+
+      .info-text-block h4 {
+        font-size: 18px;
+      }
+
+      .info-text-block h5 {
+        font-size: 16px;
+      }
+
+      .info-text-block h6 {
+        font-size: 14px;
+      }
+    }
 
     /* ≤959 */
+    @media (max-width: 959px) {
+      .info-text-block h1 {
+        font-size: 24px;
+      }
+
+      .info-text-block h2 {
+        font-size: 20px;
+      }
+
+      .info-text-block h3 {
+        font-size: 18px;
+      }
+
+      .info-text-block h4 {
+        font-size: 16px;
+      }
+
+      .info-text-block h5 {
+        font-size: 14px;
+      }
+
+      .info-text-block h6 {
+        font-size: 13px;
+      }
+
+      .info-text-block p {
+        font-size: 14px;
+      }
+
+      .info-text-block ul,
+      .info-text-block ol {
+        font-size: 14px;
+      }
+
+      .info-text-block table {
+        font-size: 14px;
+      }
+    }
 
     /* ≤599 */
+    @media (max-width: 599px) {
+      .info-text-block h1 {
+        font-size: 20px;
+      }
+
+      .info-text-block h2 {
+        font-size: 18px;
+      }
+
+      .info-text-block h3 {
+        font-size: 16px;
+      }
+
+      .info-text-block h4 {
+        font-size: 14px;
+      }
+
+      .info-text-block h5 {
+        font-size: 13px;
+      }
+
+      .info-text-block h6 {
+        font-size: 12px;
+      }
+
+      .info-text-block p {
+        font-size: 13px;
+      }
+
+      .info-text-block ul,
+      .info-text-block ol {
+        font-size: 13px;
+      }
+
+      .info-text-block table {
+        font-size: 13px;
+      }
+
+      .info-text-block table th,
+      .info-text-block table td {
+        padding: 8px 12px;
+      }
+    }
 
     /* ========================================
    КОМПОНЕНТ: quick-links
@@ -2123,6 +2578,7 @@ HTML разметка:
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
     @media (max-width: 1439px) {
@@ -2132,6 +2588,7 @@ HTML разметка:
     }
 
     /* ≤1279 */
+    @media (max-width: 1279px) {}
 
     /* ≤959 */
     @media (max-width: 959px) {
@@ -2207,6 +2664,12 @@ HTML разметка:
       letter-spacing: -0.5%;
       color: #FFFFFF;
       margin: 0;
+    }
+
+    .vip-status-list__header-icon {
+      width: 24px;
+      height: 24px;
+      display: block;
     }
 
     /* Средняя секция (текущий и следующий статус) */
@@ -3483,6 +3946,10 @@ HTML разметка:
       align-items: center;
     }
 
+    .achive-common__card--xl .achive-common__card-progress-bar {
+      width: 201px;
+    }
+
     /* ===== Interactions ===== */
 
     .achive-common__card:hover::before {
@@ -4244,6 +4711,10 @@ HTML разметка:
       min-width: 0;
     }
 
+    .bonus-system__promo-input::placeholder {
+      color: rgba(255, 255, 255, 0.32);
+    }
+
     .bonus-system__promo-input:focus {
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.32);
@@ -4389,8 +4860,10 @@ HTML разметка:
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
+    @media (max-width: 1439px) {}
 
     /* ≤1279 */
     @media (max-width: 1279px) {
@@ -4559,6 +5032,10 @@ HTML разметка:
       transition: background 0.3s ease;
     }
 
+    .faq__item:nth-child(n+6) {
+      display: none;
+    }
+
     /* Градиентная рамка через псевдоэлемент */
     .faq__item::before {
       content: '';
@@ -4575,6 +5052,13 @@ HTML разметка:
     }
 
     /* Открытое состояние */
+    .faq__item[open] {
+      background: linear-gradient(180deg, rgba(39, 32, 33, 1) 0%, rgba(44, 36, 37, 1) 100%);
+    }
+
+    .faq__item[open]::before {
+      background: linear-gradient(180deg, rgba(212, 199, 196, 0.2) 0%, rgba(212, 199, 196, 0.08) 100%);
+    }
 
     /* ========================================
    SUMMARY - Заголовок вопроса
@@ -4652,6 +5136,9 @@ HTML разметка:
     }
 
     /* Поворот иконки при открытии */
+    .faq__item[open] .faq__icon {
+      transform: rotate(180deg);
+    }
 
     /* ========================================
    ANSWER - Ответ
@@ -4668,6 +5155,16 @@ HTML разметка:
       display: flex;
       flex-direction: column;
       gap: 24px;
+    }
+
+    .faq__answer-text {
+      margin: 0;
+
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.25;
+      color: #CECACA;
     }
 
     /* ========================================
@@ -4719,6 +5216,7 @@ HTML разметка:
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
     @media (max-width: 1439px) {
@@ -4755,6 +5253,10 @@ HTML разметка:
       .faq__question-text {
         font-size: 16px;
       }
+
+      .faq__answer-text {
+        font-size: 14px;
+      }
     }
 
     /* ≤599 */
@@ -4774,6 +5276,10 @@ HTML разметка:
       .faq__answer {
         padding: 48px 12px 12px;
         margin-top: -36px;
+      }
+
+      .faq__answer-text {
+        font-size: 13px;
       }
 
       .faq__icon {
@@ -4844,6 +5350,10 @@ HTML разметка:
       position: relative;
 
       background: linear-gradient(180deg, rgba(39, 32, 33, 1) 0%, rgba(44, 36, 37, 1) 100%);
+    }
+
+    .reviews__card:nth-child(n+6) {
+      display: none;
     }
 
     /* Градиентная рамка через псевдоэлемент */
@@ -5018,6 +5528,7 @@ HTML разметка:
       transition: transform 0.3s ease;
     }
 
+    .reviews__show-more-icon amp-img,
     .reviews__show-more-icon img {
       width: 100%;
       height: 100%;
@@ -5096,6 +5607,7 @@ HTML разметка:
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
     @media (max-width: 1439px) {
@@ -5829,6 +6341,18 @@ HTML разметка:
     }
 
     /* Иконка */
+    .ctr-btn__icon {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .ctr-btn__icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
 
     /* ========================================
    STATES - Состояния
@@ -5872,7 +6396,8 @@ HTML разметка:
     }
 
     /* Disabled */
-    .ctr-btn:disabled {
+    .ctr-btn:disabled,
+    .ctr-btn.is-disabled {
       background: linear-gradient(180deg, rgba(9, 69, 155, 1) 0%, rgba(11, 87, 193, 1) 100%);
       box-shadow: none;
       cursor: not-allowed;
@@ -5880,11 +6405,13 @@ HTML разметка:
       color: rgba(255, 255, 255, 0.4);
     }
 
-    .ctr-btn:disabled::before {
+    .ctr-btn:disabled::before,
+    .ctr-btn.is-disabled::before {
       background: linear-gradient(180deg, rgba(4, 35, 77, 1) 0%, rgba(11, 87, 193, 1) 100%);
     }
 
-    .ctr-btn:disabled::after {
+    .ctr-btn:disabled::after,
+    .ctr-btn.is-disabled::after {
       background: linear-gradient(180deg, rgba(11, 87, 193, 1) 0%, rgba(12, 95, 213, 1) 100%);
       opacity: 0.2;
     }
@@ -5894,22 +6421,34 @@ HTML разметка:
    ======================================== */
 
     /* Size XL (для угловых случаев) */
+    .ctr-btn--xl {
+      height: 56px;
+      font-size: 18px;
+    }
 
     /* ========================================
    MEDIA QUERIES - Адаптивность (Desktop-first)
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
+    @media (max-width: 1439px) {}
 
     /* ≤1279 */
+    @media (max-width: 1279px) {}
 
     /* ≤959 */
     @media (max-width: 959px) {
       .ctr-btn {
         font-size: 16px;
         height: 44px;
+      }
+
+      .ctr-btn--xl {
+        height: 48px;
+        font-size: 16px;
       }
     }
 
@@ -5919,6 +6458,11 @@ HTML разметка:
         font-size: 14px;
         height: 40px;
         min-width: 120px;
+      }
+
+      .ctr-btn--xl {
+        height: 44px;
+        font-size: 14px;
       }
     }
 
@@ -6015,7 +6559,8 @@ Disabled:
     }
 
     /* Disabled */
-    .tab-btn:disabled {
+    .tab-btn:disabled,
+    .tab-btn.is-disabled {
       background: linear-gradient(180deg, rgba(44, 36, 37, 1) 0%, rgba(56, 46, 48, 1) 100%);
       border-color: rgba(212, 199, 196, 0.2);
       color: rgba(255, 255, 255, 0.4);
@@ -6048,6 +6593,24 @@ Disabled:
     }
 
     /* Color 2: Favorites (красный) */
+    .tab-btn--favorites {
+      background:
+        radial-gradient(circle at 50% 100%, rgba(193, 31, 59, 1) 0%, rgba(193, 31, 59, 0) 100%),
+        linear-gradient(180deg, rgba(123, 20, 37, 1) 0%, rgba(140, 23, 43, 1) 100%);
+      border-color: rgba(212, 199, 196, 0.48);
+    }
+
+    .tab-btn--favorites:hover {
+      background:
+        radial-gradient(circle at 50% 100%, rgba(193, 31, 59, 1) 0%, rgba(193, 31, 59, 0) 100%),
+        linear-gradient(180deg, rgba(105, 17, 32, 1) 0%, rgba(123, 20, 37, 1) 100%);
+      border-color: rgba(212, 199, 196, 0.4);
+    }
+
+    .tab-btn--favorites:active {
+      background: linear-gradient(180deg, rgba(50, 41, 43, 1) 0%, rgba(67, 55, 57, 1) 100%);
+      border-color: rgba(212, 199, 196, 0.8);
+    }
 
     /* Color 3: Popular (синий) */
     .tab-btn--popular {
@@ -6131,10 +6694,13 @@ Disabled:
    ======================================== */
 
     /* ≤1599 */
+    @media (max-width: 1599px) {}
 
     /* ≤1439 */
+    @media (max-width: 1439px) {}
 
     /* ≤1279 */
+    @media (max-width: 1279px) {}
 
     /* ≤959 */
     @media (max-width: 959px) {
@@ -6294,6 +6860,13 @@ Disabled:
       z-index: -1;
     }
 
+    .tab-line--m {
+      --tab-line-height: 32px;
+      --tab-line-font-size: 16px;
+      --tab-line-letter-spacing: 0;
+      --tab-line-icon-size: 20px;
+    }
+
     .tab-line:focus {
       outline: none;
     }
@@ -6355,6 +6928,47 @@ Disabled:
     .tab-line.is-open .tab-line__underline {
       display: block;
       opacity: 1;
+    }
+
+    .tab-line--m::before {
+      top: -32px;
+      left: -19px;
+      width: 132px;
+      height: 30px;
+    }
+
+    .tab-line--m::after {
+      top: calc(100% - 4px);
+      left: 9px;
+      width: 75px;
+      height: 30px;
+    }
+
+    .tab-line--m .tab-line__stars {
+      width: 46px;
+      height: 24px;
+      top: 6px;
+      right: 0;
+    }
+
+    .tab-line--m .tab-line__underline {
+      left: 6px;
+      right: 6px;
+      bottom: -10px;
+    }
+
+    .tab-line.is-open.tab-line--m {
+      padding-inline: 8px;
+    }
+
+    .tab-line.is-open.tab-line--m::after {
+      top: calc(100% - 2px);
+    }
+
+    .tab-line-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
     }
   </style>
 
