@@ -1,0 +1,18 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ballGradient" x1="12" y1="4" x2="12" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FBCE9D"/>
+      <stop offset="100%" stop-color="#F9B062"/>
+    </linearGradient>
+  </defs>
+  <circle cx="12" cy="12" r="7.25" stroke="url(#ballGradient)" stroke-width="1.5" fill="none"/>
+  <path
+    d="M4.75 12h14.5M12 4.75c-2.5 1.5-4 4.5-4 7.25 0 2.75 1.5 5.75 4 7.25 2.5-1.5 4-4.5 4-7.25 0-2.75-1.5-5.75-4-7.25Z"
+    stroke="url(#ballGradient)"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</svg>
+

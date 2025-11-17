@@ -1,0 +1,17 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_0_67)">
+<path d="M0 4C0 1.79086 1.79086 0 4 0H20C22.2091 0 24 1.79086 24 4V20C24 22.2091 22.2091 24 20 24H4C1.79086 24 0 22.2091 0 20V4Z" fill="url(#paint0_linear_0_67)"/>
+<path d="M8 11.5C9.19347 11.5 10.3381 11.9741 11.182 12.818C12.0259 13.6619 12.5 14.8065 12.5 16" stroke="#493C3E" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8 8C10.1217 8 12.1566 8.84285 13.6569 10.3431C15.1571 11.8434 16 13.8783 16 16" stroke="#493C3E" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.5 16C8.77614 16 9 15.7761 9 15.5C9 15.2239 8.77614 15 8.5 15C8.22386 15 8 15.2239 8 15.5C8 15.7761 8.22386 16 8.5 16Z" stroke="#493C3E" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_67" x1="12" y1="0" x2="12" y2="24" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FBCE9D"/>
+<stop offset="1" stop-color="#F9B062"/>
+</linearGradient>
+<clipPath id="clip0_0_67">
+<path d="M0 4C0 1.79086 1.79086 0 4 0H20C22.2091 0 24 1.79086 24 4V20C24 22.2091 22.2091 24 20 24H4C1.79086 24 0 22.2091 0 20V4Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>

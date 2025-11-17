@@ -1,0 +1,539 @@
+/* VIP Status List Component with Theming */
+
+/* ========================================
+   CONTROLS - Заголовок и кнопки управления
+   ======================================== */
+
+/* Обертка для заголовка и кнопок управления */
+.vip-status-list__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Кнопка с заголовком и иконкой */
+.vip-status-list__header-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vip-status-list__header {
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.5%;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.vip-status-list__header-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Средняя секция (текущий и следующий статус) */
+.vip-status-list__mid {
+  display: flex;
+  align-items: center;
+  row-gap: 4px;
+  column-gap: 16px;
+  flex-wrap: wrap;
+}
+
+.vip-status-list__mid-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.vip-status-list__mid-label {
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25em;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.vip-status-list__mid-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vip-status-list__mid-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.vip-status-list__mid-name {
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25em;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.vip-status-list__mid-separator {
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  flex-shrink: 0;
+}
+
+/* Навигация (кнопки prev/next) */
+.vip-status-list__nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vip-status-list__nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  
+  background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%);
+  border-radius: 12px;
+  
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  position: relative;
+  border: none;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.vip-status-list__nav-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.vip-status-list__nav-button:hover {
+  opacity: 0.8;
+}
+
+.vip-status-list__nav-button:active {
+  opacity: 0.6;
+}
+
+.vip-status-list__nav-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* ========================================
+   CONTAINER - Горизонтальный контейнер
+   ======================================== */
+
+.vip-status-list__container {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  width: 100%;
+  /*Я добавил padding-top: 40px и margin-top: -40px для элемента .vip-status-list__container.
+  Это создает дополнительное пространство сверху внутри контейнера для анимации иконки, не нарушая общую верстку*/
+  padding-top: 40px;
+  margin-top: -40px;
+  scroll-behavior: smooth;
+}
+
+/* Скрыть скроллбар, но оставить функциональность */
+.vip-status-list__container::-webkit-scrollbar {
+  display: none;
+}
+
+.vip-status-list__container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ========================================
+   ROOT - Корневой элемент списка
+   ======================================== */
+
+.vip-status-list {
+  width: 100%;
+}
+
+/* ========================================
+   CARD ITEM - Отдельная карточка
+   ======================================== */
+
+.vip-status-list__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 224px;
+  flex-shrink: 0;
+  
+  /* Default theme variables (Bronze) */
+  --vip-bg-inactive-start: rgba(69, 48, 33, 0.8);
+  --vip-bg-inactive-end: rgba(48, 33, 23, 1);
+  --vip-bg-active-start: rgba(157, 84, 6, 1);
+  --vip-bg-active-end: rgba(118, 63, 4, 1);
+  --vip-glow-color: rgba(155, 83, 6, 1);
+}
+
+/* Theme: New */
+.vip-status-list__item[data-status="new"] {
+  --vip-bg-inactive-start: rgba(51, 92, 70, 0.8);
+  --vip-bg-inactive-end: rgba(29, 53, 40, 1);
+  --vip-bg-active-start: rgba(67, 157, 108, 1);
+  --vip-bg-active-end: rgba(37, 86, 59, 1);
+  --vip-glow-color: rgba(67, 157, 108, 1);
+}
+
+/* Theme: Bronze */
+.vip-status-list__item[data-status="bronze"] {
+  --vip-bg-inactive-start: rgba(69, 48, 33, 0.8);
+  --vip-bg-inactive-end: rgba(48, 33, 23, 1);
+  --vip-bg-active-start: rgba(157, 84, 6, 1);
+  --vip-bg-active-end: rgba(118, 63, 4, 1);
+  --vip-glow-color: rgba(155, 83, 6, 1);
+}
+
+/* Theme: Silver */
+.vip-status-list__item[data-status="silver"] {
+  --vip-bg-inactive-start: rgba(46, 44, 78, 0.8);
+  --vip-bg-inactive-end: rgba(31, 29, 52, 1);
+  --vip-bg-active-start: rgba(62, 62, 163, 1);
+  --vip-bg-active-end: rgba(34, 34, 89, 1);
+  --vip-glow-color: rgba(97, 97, 204, 1);
+}
+
+/* Theme: Gold */
+.vip-status-list__item[data-status="gold"] {
+  --vip-bg-inactive-start: rgba(84, 73, 59, 0.8);
+  --vip-bg-inactive-end: rgba(48, 42, 33, 1);
+  --vip-bg-active-start: rgba(175, 114, 9, 1);
+  --vip-bg-active-end: rgba(177, 95, 6, 1);
+  --vip-glow-color: rgba(173, 113, 7, 1);
+}
+
+/* Theme: Platinum */
+.vip-status-list__item[data-status="platinum"] {
+  --vip-bg-inactive-start: rgba(61, 82, 77, 0.8);
+  --vip-bg-inactive-end: rgba(35, 47, 44, 1);
+  --vip-bg-active-start: rgba(62, 163, 134, 1);
+  --vip-bg-active-end: rgba(34, 89, 73, 1);
+  --vip-glow-color: rgba(61, 162, 133, 1);
+}
+
+/* Theme: Diamond */
+.vip-status-list__item[data-status="diamond"] {
+  --vip-bg-inactive-start: rgba(70, 60, 82, 0.8);
+  --vip-bg-inactive-end: rgba(40, 34, 47, 1);
+  --vip-bg-active-start: rgba(104, 62, 163, 1);
+  --vip-bg-active-end: rgba(57, 34, 89, 1);
+  --vip-glow-color: rgba(103, 61, 160, 1);
+}
+
+/* Theme: Star */
+.vip-status-list__item[data-status="star"] {
+  --vip-bg-inactive-start: rgba(90, 51, 91, 0.8);
+  --vip-bg-inactive-end: rgba(51, 29, 52, 1);
+  --vip-bg-active-start: rgba(146, 62, 163, 1);
+  --vip-bg-active-end: rgba(80, 34, 89, 1);
+  --vip-glow-color: rgba(144, 62, 161, 1);
+}
+
+/* Theme: Silver Star */
+.vip-status-list__item[data-status="silver-star"] {
+  --vip-bg-inactive-start: rgba(47, 50, 75, 0.8);
+  --vip-bg-inactive-end: rgba(31, 34, 50, 1);
+  --vip-bg-active-start: rgba(67, 82, 157, 1);
+  --vip-bg-active-end: rgba(37, 45, 86, 1);
+  --vip-glow-color: rgba(67, 82, 156, 1);
+}
+
+/* Theme: Golden Star */
+.vip-status-list__item[data-status="golden-star"] {
+  --vip-bg-inactive-start: rgba(69, 48, 33, 0.8);
+  --vip-bg-inactive-end: rgba(59, 33, 22, 1);
+  --vip-bg-active-start: rgba(175, 114, 9, 1);
+  --vip-bg-active-end: rgba(139, 59, 24, 1);
+  --vip-glow-color: rgba(174, 114, 11, 1);
+}
+
+/* Theme: Epic Star */
+.vip-status-list__item[data-status="epic-star"] {
+  --vip-bg-inactive-start: rgba(89, 33, 60, 0.8);
+  --vip-bg-inactive-end: rgba(59, 22, 40, 1);
+  --vip-bg-active-start: rgba(57, 5, 30, 1);
+  --vip-bg-active-end: rgba(132, 11, 69, 1);
+  --vip-glow-color: rgba(152, 55, 124, 1);
+}
+
+/* Card */
+.vip-status-list__card {
+  position: relative;
+  width: 100%;
+  height: 265px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  overflow: visible;
+  
+  /* Background layers - InActive state */
+  background: 
+    linear-gradient(84deg, rgba(21, 19, 21, 0) 81%, rgba(21, 19, 21, 0.08) 99%),
+    linear-gradient(-78deg, rgba(21, 19, 21, 0) 80%, rgba(21, 19, 21, 0.08) 100%),
+    linear-gradient(180deg, var(--vip-bg-inactive-start) 0%, var(--vip-bg-inactive-end) 100%);
+  
+  background-clip: padding-box;
+  transition: background 0.3s ease;
+}
+
+/* Border gradient */
+.vip-status-list__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Title */
+.vip-status-list__title {
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2em;
+  letter-spacing: -0.5%;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 20px auto 0;
+  transition: font-size 0.3s ease, margin-top 0.3s ease;
+}
+
+/* Icon */
+.vip-status-list__icon {
+  position: absolute;
+  left: 50%;
+  top: 64px;
+  transform: translateX(-50%);
+  width: 177px;
+  height: 115px;
+  object-fit: cover;
+  filter: drop-shadow(0px 4px 24px rgba(21, 19, 21, 0.24));
+  transition: top 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+/* Reward wrap */
+.vip-status-list__reward-wrap {
+  position: absolute;
+  top: 197px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.vip-status-list__reward-label {
+  position: relative;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25em;
+  color: rgba(255, 255, 255, 0.64);
+  text-align: center;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.vip-status-list__reward-value {
+  position: relative;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33em;
+  color: #F9B062;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+/* Status text */
+.vip-status-list__status {
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.43em;
+  color: rgba(255, 255, 255, 0.64);
+  text-align: center;
+  width: 100%;
+}
+
+/* Decoration stars at bottom */
+.vip-status-list__decoration-bottom {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 232px;
+  height: 51px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Load time decoration (shown on hover) */
+.vip-status-list__decoration-time {
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 232px;
+  height: 51px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hover state */
+.vip-status-list__item:hover .vip-status-list__card {
+  background: linear-gradient(180deg, var(--vip-bg-active-start) 0%, var(--vip-bg-active-end) 100%);
+}
+
+.vip-status-list__item:hover .vip-status-list__decoration-bottom {
+  opacity: 1;
+}
+
+.vip-status-list__item:hover .vip-status-list__decoration-time {
+  opacity: 1;
+}
+
+/* Glow effect on hover */
+.vip-status-list__item:hover .vip-status-list__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 67px;
+  height: 67px;
+  border-radius: 50%;
+  background: transparent;
+  /*box-shadow: */
+  /*  0px -24px 128px 0px var(--vip-glow-color),*/
+  /*  0px -24px 128px 0px var(--vip-glow-color);*/
+  pointer-events: none;
+}
+
+.vip-status-list__item:hover .vip-status-list__title {
+  font-size: 24px;
+  margin-top: 106px;
+}
+
+.vip-status-list__item:hover .vip-status-list__icon {
+  top: -24px;
+  width: 200px;
+  height: 130px;
+}
+
+.vip-status-list__item:hover .vip-status-list__reward-label,
+.vip-status-list__item:hover .vip-status-list__reward-value {
+  color: #FFFFFF;
+}
+
+/* ========================================
+   RESPONSIVE - Media Queries
+   ======================================== */
+
+@media (max-width: 960px) {
+  /* Включаем перенос строк для controls */
+  .vip-status-list__controls {
+    flex-wrap: wrap;
+  }
+
+  /* Первая строка: header-head слева, nav справа */
+  .vip-status-list__header-head {
+    flex: 1 1 auto;
+    order: 0;
+  }
+
+  .vip-status-list__nav {
+    flex: 0 0 auto;
+    order: 1;
+  }
+
+  /* Вторая строка: mid переезжает вниз на всю ширину */
+  .vip-status-list__mid {
+    flex: 1 1 100%;
+    order: 2;
+    justify-content: flex-start;
+  }
+}
+
+/* swiper options */
+
+.vip-status-list__container {
+    overflow: hidden;
+    position: relative;
+}
+
+.vip-status-list__container .swiper-wrapper {
+    display: flex;
+    transition-property: transform;
+}
+
+@media (max-width: 600px) {
+    .vip-status-list__container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .vip-status-list__container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .vip-status-list__container .swiper-wrapper {
+        gap: 8px;
+        width: max-content;
+    }
+
+    .vip-status-list__container .swiper-slide {}
+
+    .vip-status-list__nav {
+        display: none;
+    }
+}
+

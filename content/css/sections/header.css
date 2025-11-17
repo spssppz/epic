@@ -1,0 +1,365 @@
+/* ========================================
+   БЛОК: header
+   Описание: Шапка сайта с навигацией, логотипом, кнопками приложений и авторизации
+   ======================================== */
+
+.header {
+    padding: 24px 0;
+}
+
+.header__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*padding: 24px 0;*/
+    /*gap: 332px;*/
+}
+
+.header__branding {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+    min-height: 40px;
+}
+
+.header__logo {
+    display: inline-flex;
+    width: 42px;
+    height: 40px;
+}
+
+.header__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.header__menu {
+    display: block;
+}
+
+.header__menu-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header__menu-item {
+    position: relative;
+}
+
+.header__menu-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    min-height: 40px;
+    border-radius: 12px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.1px;
+    color: rgba(255, 255, 255, 0.64);
+    text-decoration: none;
+    transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header__menu-link:hover,
+.header__menu-link:focus-visible {
+    color: #ffffff;
+}
+
+.header__menu-link:focus-visible {
+    outline: 2px solid rgba(251, 206, 157, 0.4);
+    outline-offset: 4px;
+}
+
+.header__menu-icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__menu-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+    opacity: 0.64;
+}
+
+.header__menu-link:hover .header__menu-icon img,
+.header__menu-link:focus-visible .header__menu-icon img {
+    opacity: 1;
+}
+
+.header__menu-label {
+    white-space: nowrap;
+}
+
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.header__apps {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header__app-btn {
+    /*min-width: 156px;*/
+    text-wrap: nowrap;
+}
+
+.header__app-btn .app-btn__icon {
+    width: 24px;
+    height: 24px;
+}
+
+.header__auth {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header__mobile-actions {
+    display: none;
+    align-items: center;
+    gap: 12px;
+}
+
+.header__auth .tab-btn--header {
+    gap: 8px;
+    padding: 0 20px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: normal;
+}
+
+.header__auth .tab-btn--header:focus-visible {
+    outline: 2px solid rgba(81, 149, 246, 0.48);
+    outline-offset: 3px;
+}
+
+.header__auth .tab-btn--header-secondary,
+.header__auth .tab-btn--header-primary,
+.header__auth .tab-btn--header-menu {
+    border: 1px solid transparent;
+    transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.header__auth .tab-btn--header-secondary {
+    background:
+            linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%) border-box;
+    color: #ffffff;
+}
+
+.header__auth .tab-btn--header-secondary:hover {
+    background:
+            linear-gradient(180deg, rgba(67, 55, 57, 1) 0%, rgba(79, 64, 67, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%) border-box;
+    transform: translateY(-1px);
+}
+
+.header__auth .tab-btn--header-secondary:active {
+    background:
+            linear-gradient(180deg, rgba(50, 41, 43, 1) 0%, rgba(67, 55, 57, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%) border-box;
+    transform: translateY(0);
+}
+
+.header__auth .tab-btn--header-primary {
+    background:
+            linear-gradient(180deg, rgba(23, 114, 242, 1) 0%, rgba(81, 149, 246, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%) border-box;
+    box-shadow: 0px 4px 16px rgba(13, 104, 232, 0.24);
+    color: #ffffff;
+}
+
+.header__auth .tab-btn--header-primary:hover {
+    background:
+            linear-gradient(180deg, rgba(11, 87, 193, 1) 0%, rgba(23, 114, 242, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.64) 100%) border-box;
+    box-shadow: 0px 6px 20px rgba(13, 104, 232, 0.28);
+    transform: translateY(-1px);
+}
+
+.header__auth .tab-btn--header-primary:active {
+    background:
+            linear-gradient(180deg, rgba(7, 61, 135, 1) 0%, rgba(11, 87, 193, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%) border-box;
+    box-shadow: 0px 3px 14px rgba(13, 104, 232, 0.2);
+    transform: translateY(0);
+}
+
+.header__auth .tab-btn--header-menu {
+    padding: 0;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    gap: 0;
+    justify-content: center;
+    background:
+            linear-gradient(180deg, rgba(246, 136, 19, 1) 0%, rgba(248, 156, 58, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%) border-box;
+    box-shadow: 0px 4px 24px rgba(215, 177, 152, 0.24);
+    color: #ffffff;
+}
+
+.header__auth .tab-btn--header-menu:hover {
+    background:
+            linear-gradient(180deg, rgba(239, 130, 17, 1) 0%, rgba(248, 156, 58, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.72) 100%) border-box;
+    box-shadow: 0px 6px 28px rgba(215, 177, 152, 0.32);
+    transform: translateY(-1px);
+}
+
+.header__auth .tab-btn--header-menu:active {
+    background:
+            linear-gradient(180deg, rgba(229, 120, 12, 1) 0%, rgba(243, 150, 54, 1) 100%) padding-box,
+            linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 100%) border-box;
+    box-shadow: 0px 4px 24px rgba(215, 177, 152, 0.2);
+    transform: translateY(0);
+}
+
+.header__auth .tab-btn--header-menu .tab-btn__icon {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1479 */
+@media (max-width: 1479px) {
+    .header__row {
+        /*gap: 120px;*/
+    }
+
+    .header__branding {
+        gap: 24px;
+    }
+
+    .header__actions {
+        gap: 32px;
+    }
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+    .header {
+        padding: 20px 0;
+    }
+
+    .header__row {
+        /*gap: 80px;*/
+    }
+
+    .header__menu-link {
+        font-size: 18px;
+        min-height: 36px;
+    }
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .header__auth {
+        display: none;
+    }
+
+    .header__mobile-actions {
+        display: inline-flex;
+    }
+
+    .header__mobile-actions .tab-btn__icon {
+        height: 20px;
+        width: 20px;
+    }
+
+    .header {
+        padding: 16px 0;
+    }
+
+    .header__row {
+        /*gap: 24px;*/
+    }
+
+    .header__branding {
+        gap: 16px;
+    }
+
+    .header__menu {
+        display: none;
+    }
+
+    .header__apps {
+        display: none;
+    }
+
+    .header__actions {
+        gap: 16px;
+    }
+
+    .header__auth {
+        gap: 8px;
+    }
+
+    .header__auth .tab-btn--header {
+        font-size: 15px;
+        padding: 0 16px;
+        height: 36px;
+    }
+
+    .header__auth .tab-btn--header-menu {
+        width: 36px;
+        min-width: 36px;
+        height: 36px;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .header {
+        padding: 12px 0;
+    }
+
+    .header__row {
+        /*gap: 16px;*/
+    }
+
+    .header__branding {
+        gap: 12px;
+    }
+
+    .header__auth {
+        gap: 6px;
+    }
+
+    .header__auth .tab-btn--header {
+        font-size: 14px;
+        padding: 0 14px;
+        height: 32px;
+    }
+
+    .header__auth .tab-btn--header-menu {
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+    }
+}

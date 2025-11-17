@@ -1,0 +1,290 @@
+/* ========================================
+   КОМПОНЕНТ: quick-links
+   Описание: Блок быстрых ссылок с раскрытием через details/summary
+   ======================================== */
+
+/* Базовый контейнер */
+.quick-links {
+    width: 100%;
+}
+
+/* Details элемент */
+.quick-links__details {
+    width: 100%;
+}
+
+/* ========================================
+   HEADER - Заголовок (summary)
+   ======================================== */
+
+.quick-links__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(67, 55, 57, 1) 100%);
+    border-radius: 16px;
+    
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    transition: background 0.2s ease;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.quick-links__header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.quick-links__header::-webkit-details-marker {
+    display: none;
+}
+
+.quick-links__header:hover {
+    background: linear-gradient(180deg, rgba(90, 73, 76, 1) 0%, rgba(79, 64, 67, 1) 100%);
+}
+
+/* Заголовок */
+.quick-links__title {
+    margin: 0;
+    padding: 0;
+    
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: #BAB6B6;
+}
+
+/* Иконка */
+.quick-links__icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.quick-links__icon img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Поворот иконки при открытии */
+.quick-links__details[open] .quick-links__icon {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   CONTENT - Контент (ссылки)
+   ======================================== */
+
+.quick-links__content {
+    margin-top: 8px;
+    padding: 16px;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(39, 32, 33, 1) 0%, rgba(44, 36, 37, 1) 100%);
+    border-radius: 16px;
+    
+    animation: fadeIn 0.3s ease;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.quick-links__content::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.2) 0%, rgba(212, 199, 196, 0.08) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Сетка ссылок - 2 колонки на десктопе */
+.quick-links__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+/* ========================================
+   LINK ITEM - Элемент ссылки
+   ======================================== */
+
+.quick-links__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.quick-links__item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Иконка ссылки */
+.quick-links__item-icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, rgba(251, 206, 157, 1) 0%, rgba(249, 176, 98, 1) 100%);
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Текст ссылки */
+.quick-links__item-text {
+    flex: 1;
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: left;
+    color: #CECACA;
+    
+    transition: color 0.2s ease;
+}
+
+.quick-links__item:hover .quick-links__item-text {
+    color: #FFFFFF;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1599 */
+@media (max-width: 1599px) {
+}
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+    .quick-links {
+        max-width: 100%;
+    }
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .quick-links__title {
+        font-size: 18px;
+    }
+    
+    .quick-links__item-text {
+        font-size: 15px;
+    }
+}
+
+/* ≤599 - 1 колонка для мобильных */
+@media (max-width: 599px) {
+    .quick-links__header {
+        padding: 12px;
+    }
+    
+    .quick-links__title {
+        font-size: 16px;
+    }
+    
+    .quick-links__content {
+        padding: 12px;
+    }
+    
+    /* Одна колонка на мобильных */
+    .quick-links__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-links__item {
+        padding: 10px;
+    }
+    
+    .quick-links__item-text {
+        font-size: 14px;
+    }
+
+    .quick-links__item-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/*
+HTML разметка:
+
+<div class="quick-links">
+  <details class="quick-links__details">
+    <summary class="quick-links__header">
+      <h3 class="quick-links__title">Быстрые ссылки</h3>
+      <span class="quick-links__icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 10l5 5 5-5" stroke="#BAB6B6" stroke-width="1.5"/>
+        </svg>
+      </span>
+    </summary>
+    
+    <div class="quick-links__content">
+      <div class="quick-links__grid">
+        <a href="#" class="quick-links__item">
+          <span class="quick-links__item-icon">
+            <svg>...</svg>
+          </span>
+          <span class="quick-links__item-text">Разнообразие азартных игр</span>
+        </a>
+        
+        <a href="#" class="quick-links__item">
+          <span class="quick-links__item-icon">
+            <svg>...</svg>
+          </span>
+          <span class="quick-links__item-text">Экономический вклад</span>
+        </a>
+        
+        <!-- Больше ссылок... -->
+      </div>
+    </div>
+  </details>
+</div>
+*/
+

@@ -1,0 +1,598 @@
+/* ========================================
+   КОМПОНЕНТ: sidebar
+   Описание: Боковое меню с навигацией, активностями и кнопками приложений
+   ======================================== */
+
+/* Базовый контейнер */
+#sidebar {
+    display: flex;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 360px;
+    max-height: 100svh;
+    
+    display: flex;
+    flex-direction: column;
+    
+    background: linear-gradient(180deg, rgba(56, 46, 48, 1) 0%, rgba(67, 55, 57, 1) 100%);
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px 0px rgba(22, 18, 19, 1);
+    
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar__activities-col {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4px;
+    position: relative;
+}
+
+.sidebar__activities-row .sidebar__activity-label {
+    color: #FFFFFFA3;
+}
+
+.sidebar__activities-row--large .sidebar__activity-label {
+    text-align: left;
+}
+
+.sidebar__activities-row--large .sidebar__activity-btn {
+    height: 96px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.sidebar__activities-row--small .sidebar__activity-btn {
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+/* Градиентная рамка через псевдоэлемент */
+.sidebar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.sidebar.is-open {
+    right: 0;
+}
+
+/* Скрываем скроллбар */
+.sidebar::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.sidebar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ========================================
+   HEADER - Шапка с заголовком и кнопкой закрытия
+   ======================================== */
+
+.sidebar__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 24px 24px 16px;
+}
+
+.sidebar__title {
+    flex: 1;
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.33;
+    letter-spacing: -0.5%;
+    color: #FFFFFF;
+}
+
+.sidebar__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar__close:hover {
+    opacity: 0.7;
+}
+
+.sidebar__close-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ========================================
+   CONTENT - Основной контент
+   ======================================== */
+
+.sidebar__content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 16px 16px;
+}
+
+/* ========================================
+   VIP STATUS & BOOSTUP BLOCK
+   ======================================== */
+
+.sidebar__vip-block {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%);
+    border-radius: 12px;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.sidebar__vip-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* VIP Header */
+.sidebar__vip-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    position: relative;
+}
+
+/* Градиентная нижняя граница через псевдоэлемент */
+.sidebar__vip-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    pointer-events: none;
+}
+
+.sidebar__vip-title {
+    flex: 1;
+    height: 20px;
+    margin: 0;
+    
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #FFFFFF;
+}
+
+.sidebar__vip-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* VIP Status Item */
+.sidebar__vip-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px;
+    position: relative;
+}
+
+/* Градиентная нижняя граница через псевдоэлемент */
+.sidebar__vip-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    pointer-events: none;
+}
+
+.sidebar__vip-item:last-child::after {
+    display: none;
+}
+
+.sidebar__vip-image {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.sidebar__vip-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 8px;
+    flex: 1;
+}
+
+.sidebar__vip-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sidebar__vip-name {
+    margin: 0;
+    
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #FFFFFF;
+}
+
+.sidebar__vip-description {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+.sidebar__vip-progress {
+    position: relative;
+    width: 100%;
+    height: 3px;
+}
+
+.sidebar__vip-progress-bg {
+    position: absolute;
+    top: 1.5px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar__vip-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(11deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 99%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 
+        1.72px -0.82px 5.31px 0px rgba(255, 255, 255, 0.24),
+        7.56px -3.63px 10.99px 0px rgba(255, 255, 255, 0.39),
+        18.56px -8.9px 21.92px 0px rgba(255, 255, 255, 0.5),
+        35.75px -17.15px 42.96px 0px rgba(255, 255, 255, 0.6),
+        60.15px -28.86px 78.99px 0px rgba(255, 255, 255, 0.75),
+        92.8px -44.52px 134.87px 0px rgba(255, 255, 255, 0.99);
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Декоративная точка на прогресс-баре */
+.sidebar__vip-progress-point {
+    position: absolute;
+    top: -2.5px;
+    left: calc(var(--progress, 0%) - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    transition: left 0.3s ease;
+}
+
+/* Hover для прогресс-бара */
+.sidebar__vip-item:hover .sidebar__vip-progress-bar {
+    box-shadow: 
+        1.72px -0.82px 5.31px 0px rgba(255, 255, 255, 0.3),
+        7.56px -3.63px 10.99px 0px rgba(255, 255, 255, 0.45),
+        18.56px -8.9px 21.92px 0px rgba(255, 255, 255, 0.6),
+        35.75px -17.15px 42.96px 0px rgba(255, 255, 255, 0.7),
+        60.15px -28.86px 78.99px 0px rgba(255, 255, 255, 0.85),
+        92.8px -44.52px 134.87px 0px rgba(255, 255, 255, 1);
+}
+
+/* ========================================
+   ACTIVITIES SECTION
+   ======================================== */
+
+.sidebar__section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar__section-title {
+    margin: 0;
+    
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #FFFFFF;
+}
+
+/* Activities Grid */
+.sidebar__activities {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar__activities-row {
+    display: flex;
+    gap: 10px;
+}
+
+.sidebar__activities-row--small {
+    gap: 8px;
+}
+
+/* Activity Button */
+.sidebar__activity-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    /*flex: 1;*/
+    padding: 12px 8px;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%);
+    border-radius: 12px;
+    
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.sidebar__activity-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.sidebar__activity-btn:hover {
+    background: linear-gradient(180deg, rgba(90, 73, 76, 1) 0%, rgba(100, 83, 86, 1) 100%);
+}
+
+.sidebar__activity-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sidebar__activity-label {
+    margin: 0;
+    
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sidebar__activity-btn--small .sidebar__activity-label {
+    font-size: 12px;
+    line-height: 1.33;
+}
+
+/* Counter Badge */
+.sidebar__activity-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1;
+    color: #FFFFFF;
+    
+    background: linear-gradient(135deg, #F75274 0%, #D53692 100%);
+    border-radius: 4px;
+}
+
+/* ========================================
+   OTHER SECTION - Другие ссылки
+   ======================================== */
+
+.sidebar__other-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.sidebar__other-item {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    padding: 0 8px;
+    
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sidebar__other-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar__other-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
+    height: 48px;
+    
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidebar__other-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 0 4px;
+    flex: 1;
+}
+
+.sidebar__other-text {
+    margin: 0;
+    
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sidebar__other-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   APP BUTTONS - Кнопки приложений
+   ======================================== */
+
+.sidebar__apps {
+    display: flex;
+    gap: 12px;
+}
+
+.sidebar__apps .app-btn {
+    flex: 1;
+}
+
+/* ========================================
+   OVERLAY - Затемнение фона
+   ======================================== */
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100svh;
+    
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность
+   ======================================== */
+
+/* ≤959px */
+@media (max-width: 959px) {
+    .sidebar {
+        /*width: 320px;*/
+    }
+}
+
+/* ≤599px - На мобильных растягиваем на всю ширину */
+@media (max-width: 599px) {
+    .sidebar {
+        width: 100svw;
+        height: 100svh;
+        max-height: 100svh;
+        border-radius: 0;
+        right: -100%;
+        left: auto;
+    }
+
+    .sidebar::before {
+        display: none;
+    }
+
+    .sidebar.is-open {
+        right: 0;
+    }
+
+    .sidebar__header {
+        padding: 20px 16px 12px;
+    }
+
+    .sidebar__title {
+        font-size: 20px;
+    }
+
+    .sidebar__content {
+        padding: 0 12px 12px;
+    }
+
+    .sidebar__apps {
+        flex-direction: column;
+    }
+
+    .sidebar__apps .app-btn {
+        width: 100%;
+    }
+}
+

@@ -1,0 +1,163 @@
+/* ========================================
+   СЕКЦИЯ: login-gate
+   Описание: Блок призыва к авторизации с фоном и CTA кнопкой
+   ======================================== */
+
+.login-gate {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+}
+
+/* Фоновое изображение */
+.login-gate__bg {
+    position: absolute;
+    object-fit: cover;
+    object-position: bottom;
+    max-height: 100%;
+}
+
+/* Контент контейнер */
+.login-gate__content {
+    margin-top: 24px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Заголовок */
+.login-gate__title {
+
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.25em;
+    letter-spacing: -0.005em;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Описание */
+.login-gate__description {
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5em;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    max-width: 540px;
+}
+
+/* Кнопка (используется .ctr-btn utility class) */
+.login-gate__button {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1599 */
+@media (max-width: 1599px) {
+    .login-gate {
+    }
+}
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+    .login-gate {
+    }
+    
+    .login-gate__bg {
+    }
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+    .login-gate {
+    }
+    
+    .login-gate__title {
+        font-size: 28px;
+    }
+    
+    .login-gate__bg {
+    }
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .login-gate {
+        height: 250px;
+    }
+    
+    .login-gate__title {
+        font-size: 24px;
+        line-height: 1.3em;
+    }
+    
+    .login-gate__description {
+        font-size: 15px;
+        max-width: 480px;
+    }
+    
+    .login-gate__bg {
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .login-gate {
+        height: 200px;
+    }
+    
+    .login-gate__title {
+        font-size: 20px;
+    }
+    
+    .login-gate__description {
+        font-size: 14px;
+        line-height: 1.4em;
+        max-width: 100%;
+    }
+    
+    .login-gate__bg {
+
+    }
+}
+
+/*
+HTML разметка:
+
+<section class="login-gate">
+  <img 
+    class="login-gate__bg"
+    src="./content/images/login-gate/fake-games.webp"
+    alt=""
+  >
+  
+  <div class="login-gate__content">
+    <h2 class="login-gate__title">Log into your account to participate</h2>
+    <p class="login-gate__description">
+      Sign up or log in to start unlocking achievements and discovering exclusive bonuses along the way!
+    </p>
+  </div>
+  
+  <a href="#" class="login-gate__button ctr-btn ctr-btn--l">
+    <span class="ctr-btn__content">Login</span>
+  </a>
+</section>
+*/
+

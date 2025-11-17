@@ -1,0 +1,427 @@
+/* ========================================
+   КОМПОНЕНТ: tour-grid
+   Описание: Контейнер турнира с информацией, изображением и призовыми местами
+   ======================================== */
+
+/* Базовый контейнер */
+.tour-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    width: 100%;
+}
+
+/* ========================================
+   MAIN CARD - Основная карточка турнира
+   ======================================== */
+
+.tour-grid__main {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    
+    /* Градиентный фон */
+    background: 
+        linear-gradient(-69deg, rgba(44, 36, 37, 0.2) 83%, rgba(44, 36, 37, 1) 100%),
+        linear-gradient(24deg, rgba(44, 36, 37, 0.2) 37%, rgba(44, 36, 37, 1) 71%),
+        linear-gradient(-1deg, rgba(198, 144, 108, 0.2) 0%, rgba(15, 9, 6, 0) 50%),
+        linear-gradient(180deg, rgba(198, 144, 108, 0.2) 0%, rgba(15, 9, 6, 0) 93%),
+        linear-gradient(180deg, rgba(39, 32, 33, 1) 0%, rgba(44, 36, 37, 1) 100%);
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.tour-grid__main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.2) 0%, rgba(212, 199, 196, 0.08) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* ========================================
+   CONTENT - Контентная часть
+   ======================================== */
+
+.tour-grid__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 20px 24px 24px;
+}
+
+/* ========================================
+   INFO SECTION - Информационная секция
+   ======================================== */
+
+.tour-grid__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Верхняя часть с заголовком и описанием */
+.tour-grid__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tour-grid__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.tour-grid__title {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: #FFFFFF;
+}
+
+.tour-grid__description {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+/* ========================================
+   DETAILS - Детали турнира
+   ======================================== */
+
+.tour-grid__details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tour-grid__detail {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tour-grid__detail-label {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+.tour-grid__detail-value {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: #FFFFFF;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tour-grid__detail-value img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+/* Разделитель */
+.tour-grid__separator {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.16);
+    flex-shrink: 0;
+}
+
+/* ========================================
+   IMAGE - Изображение турнира
+   ======================================== */
+
+.tour-grid__image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+}
+
+.tour-grid__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.tour-grid__image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.2) 0%, rgba(212, 199, 196, 0.08) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tour-grid__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========================================
+   PRIZES - Призовые места
+   ======================================== */
+
+.tour-grid__prizes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 15%);
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.tour-grid__prize {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    flex: 1;
+    border-radius: 16px;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(56, 46, 48, 1) 0%, rgba(67, 55, 57, 1) 100%);
+    
+    transition: background 0.3s ease;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.tour-grid__prize::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.2) 0%, rgba(212, 199, 196, 0.08) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.tour-grid__prize:hover::before {
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.12) 100%);
+}
+
+.tour-grid__prize-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.tour-grid__prize-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.tour-grid__prize-place {
+    margin: 0;
+    flex: 1;
+    
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: #FFFFFF;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tour-grid__prize-amount {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: #FFFFFF;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1599 */
+@media (max-width: 1599px) {
+    .tour-grid {
+    }
+}
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+    .tour-grid {
+        max-width: 100%;
+    }
+    
+    .tour-grid__title {
+        font-size: 28px;
+    }
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+    /* Стили для планшетов */
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .tour-grid__main {
+        grid-template-columns: 1fr;
+    }
+    
+    .tour-grid__image-wrapper {
+        order: 1;
+        padding: 8px 8px 0;
+    }
+    
+    .tour-grid__content {
+        order: 2;
+        gap: 32px;
+        padding: 20px 20px 24px;
+    }
+    
+    .tour-grid__prizes {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .tour-grid__prize {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 34px;
+        padding: 12px;
+        height: 40px;
+        border-radius: 12px;
+    }
+    
+    .tour-grid__prize:nth-child(1),
+    .tour-grid__prize:nth-child(2) {
+        grid-column: span 2;
+    }
+    
+    .tour-grid__prize:nth-child(3) {
+        grid-column: span 3;
+    }
+    
+    .tour-grid__prize-info {
+        gap: 8px;
+        flex: 0 1 auto;
+    }
+    
+    .tour-grid__prize-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .tour-grid__prize-place {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+    
+    .tour-grid__prize-amount {
+        font-size: 16px;
+        line-height: 1.25;
+        font-weight: 600;
+        flex-shrink: 0;
+    }
+    
+    .tour-grid__all-places {
+        grid-column: span 1;
+        width: 100%;
+        padding: 8px;
+        height: auto;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .tour-grid__image {
+        min-height: unset;
+        height: 200px;
+    }
+    
+    .tour-grid__prizes {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .tour-grid__prize {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+    
+    .tour-grid__all-places {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .tour-grid__details {
+        justify-content: center;
+    }
+
+    .tour-grid__separator:nth-of-type(4) {
+        display: none;
+    }
+
+    .tour-grid__detail:nth-of-type(5) {
+        display: none;
+    }
+}
+
+
+

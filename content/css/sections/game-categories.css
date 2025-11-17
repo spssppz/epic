@@ -1,0 +1,226 @@
+/* ========================================
+   СЕКЦИЯ: game-categories
+   Описание: Фильтры и категории игр (поиск, провайдеры, теги)
+   ======================================== */
+
+/* Базовый контейнер */
+.game-categories {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+}
+
+/* ========================================
+   TOP ROW - Верхняя строка (Поиск + Провайдеры)
+   ======================================== */
+
+.game-categories__top {
+    display: flex;
+    gap: 12px;
+}
+
+/* ========================================
+   SEARCH INPUT - Поле поиска
+   ======================================== */
+
+.game-categories__search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    flex: 1;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%);
+    border-radius: 12px;
+    
+    transition: background 0.3s ease;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.game-categories__search::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.game-categories__search:focus-within::before {
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%);
+}
+
+.game-categories__search-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.game-categories__search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #FFFFFF;
+}
+
+.game-categories__search-input::placeholder {
+    color: rgba(255, 255, 255, 0.48);
+}
+
+/* ========================================
+   PROVIDER SELECT - Выбор провайдера
+   ======================================== */
+
+.game-categories__provider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    min-width: 200px;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%);
+    border-radius: 12px;
+    border: none;
+    
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #FFFFFF;
+    
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.game-categories__provider::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.game-categories__provider:hover {
+    background: linear-gradient(180deg, rgba(90, 73, 76, 1) 0%, rgba(100, 83, 86, 1) 100%);
+}
+
+.game-categories__provider:hover::before {
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%);
+}
+
+.game-categories__provider.is-open::before {
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%);
+}
+
+.game-categories__provider-text {
+    flex: 1;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.game-categories__provider-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.game-categories__provider.is-open .game-categories__provider-icon {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   TAGS ROW - Строка с тегами категорий
+   ======================================== */
+
+.game-categories__tags {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.game-categories__tags::-webkit-scrollbar {
+    display: none;
+}
+
+.game-categories__tags .tab-btn {
+    flex-shrink: 0;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность
+   ======================================== */
+
+/* ≤1599px */
+@media (max-width: 1599px) {
+}
+
+/* ≤1439px */
+@media (max-width: 1439px) {
+}
+
+/* ≤1279px */
+@media (max-width: 1279px) {
+    .game-categories__provider {
+        /*min-width: 180px;*/
+    }
+}
+
+/* ≤959px */
+@media (max-width: 959px) {
+    .game-categories__provider {
+        /*min-width: 160px;*/
+    }
+}
+
+/* ≤599px */
+@media (max-width: 599px) {
+    .game-categories {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .game-categories__top {
+        gap: 8px;
+        flex-direction: column;
+    }
+    
+    .game-categories__search {
+    }
+    
+    .game-categories__provider {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .game-categories__search-input {
+    }
+    
+    .game-categories__provider {
+    }
+}
+

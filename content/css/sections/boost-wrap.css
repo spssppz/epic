@@ -1,0 +1,374 @@
+/* Boost Wrap Component */
+
+.boost-wrap {
+  --boost-levels-gap: 8px;
+  width: 100%;
+}
+
+/* Header section */
+.boost-wrap__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.boost-wrap__title {
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2em;
+  letter-spacing: -0.005em;
+  color: #FFFFFF;
+  flex: 1;
+}
+
+.boost-wrap__timer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.boost-wrap__timer-label {
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25em;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.boost-wrap__timer-value {
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25em;
+  color: #F9B062;
+  white-space: nowrap;
+}
+
+/* Responsive: Timer на новую строку */
+@media (max-width: 959px) {
+  .boost-wrap__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Swiper container */
+.boost-wrap__container {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Levels container */
+.boost-wrap__levels {
+  display: flex;
+  gap: 0;
+  transition-property: transform;
+}
+
+/* Level item wrapper */
+.boost-wrap__level-item {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 1;
+}
+
+/* Horizontal line through badge */
+.boost-wrap__level-item::after {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: calc(100% + var(--boost-levels-gap));
+  height: 1px;
+  background: #FFFFFF29;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Last item line without gap */
+.boost-wrap__level-item:last-child::after {
+  width: 100%;
+}
+
+/* Level badge/title */
+.boost-wrap__level-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  gap: 8px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(67, 55, 57, 1) 100%);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25em;
+  color: #FFFFFF;
+  text-align: center;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+}
+
+.boost-wrap__level-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+/* Level card - default style */
+.boost-wrap__level-card {
+  position: relative;
+  width: 192px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0 20px;
+  box-sizing: border-box;
+  background: 
+    linear-gradient(270deg, rgba(44, 36, 37, 0.2) 74%, rgba(44, 36, 37, 1) 100%),
+    linear-gradient(88deg, rgba(44, 36, 37, 0.2) 73%, rgba(44, 36, 37, 1) 100%),
+    linear-gradient(-1deg, rgba(198, 144, 108, 0.2) 0%, rgba(15, 9, 6, 0) 42%),
+    linear-gradient(178deg, rgba(198, 144, 108, 0.2) 0%, rgba(15, 9, 6, 0) 59%),
+    linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(79, 64, 67, 1) 100%);
+  transition: background 0.3s ease, height 0.3s ease;
+}
+
+.boost-wrap__level-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(212, 199, 196, 0.2) 0%, rgba(212, 199, 196, 0.08) 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+/* Hover state - active blue gradient */
+.boost-wrap__level-item:hover .boost-wrap__level-badge {
+  background: linear-gradient(180deg, rgba(13, 104, 232, 1) 0%, rgba(42, 126, 243, 1) 100%);
+}
+
+.boost-wrap__level-item:hover .boost-wrap__level-badge::before {
+  background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+}
+
+.boost-wrap__level-item:hover .boost-wrap__level-card {
+  background: linear-gradient(180deg, rgba(10, 78, 174, 1) 0%, rgba(13, 104, 232, 1) 100%);
+}
+
+.boost-wrap__level-item:hover .boost-wrap__level-card::before {
+  background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+}
+
+.boost-wrap__level-item:hover .boost-wrap__decoration-bottom {
+  opacity: 1;
+}
+
+.boost-wrap__level-item:hover .boost-wrap__progress-label,
+.boost-wrap__level-item:hover .boost-wrap__progress-value {
+  color: #FFFFFF;
+}
+
+.boost-wrap__level-item:hover .boost-wrap__reward-item .boost-wrap__reward-label,
+.boost-wrap__level-item:hover .boost-wrap__reward-item .boost-wrap__reward-value {
+  color: #FFFFFF;
+}
+
+/* Progress section */
+.boost-wrap__progress {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 92px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.boost-wrap__progress-label {
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.43em;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+
+.boost-wrap__progress-value {
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25em;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+
+/* Gift image */
+.boost-wrap__gift {
+  position: relative;
+  width: 100%;
+  max-width: 218px;
+  height: 106px;
+  object-fit: contain;
+  z-index: 0;
+}
+
+/* Decoration stars (shown on hover) */
+.boost-wrap__decoration-bottom {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 192px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Rewards section */
+.boost-wrap__rewards {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+  width: 100%;
+  align-self: stretch;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.boost-wrap__rewards-title {
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.43em;
+  color: rgba(255, 255, 255, 0.64);
+  text-align: center;
+  width: 100%;
+}
+
+.boost-wrap__rewards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-self: stretch;
+}
+
+/* Reward item */
+.boost-wrap__reward-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.boost-wrap__reward-item--separator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0;
+}
+
+.boost-wrap__reward-content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.boost-wrap__reward-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.boost-wrap__reward-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.boost-wrap__reward-label {
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.43em;
+  color: rgba(255, 255, 255, 0.64);
+  transition: color 0.3s ease;
+  flex: 1;
+  min-width: 0;
+}
+
+.boost-wrap__reward-value {
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.43em;
+  color: rgba(255, 255, 255, 0.64);
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Mobile native scroll */
+@media (max-width: 600px) {
+  .boost-wrap__container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .boost-wrap__container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .boost-wrap__levels {
+    gap: var(--boost-levels-gap);
+    width: max-content;
+  }
+}
+

@@ -1,0 +1,411 @@
+/* ========================================
+   КОМПОНЕНТ: reviews
+   Описание: Секция отзывов с карточками пользователей
+   ======================================== */
+
+/* Базовый контейнер */
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* ========================================
+   HEADING - Заголовок
+   ======================================== */
+
+.reviews__title {
+    margin: 0;
+    width: 100%;
+    
+
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.29;
+    letter-spacing: -0.005em;
+    color: #FFFFFF;
+}
+
+/* ========================================
+   CONTENT - Контентная часть
+   ======================================== */
+
+.reviews__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.reviews__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+/* ========================================
+   REVIEW CARD - Карточка отзыва
+   ======================================== */
+
+.reviews__card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+    width: 100%;
+    border-radius: 16px;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(39, 32, 33, 1) 0%, rgba(44, 36, 37, 1) 100%);
+}
+
+.reviews__card:nth-child(n+6) {
+    display: none;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.reviews__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.2) 0%, rgba(212, 199, 196, 0.08) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* ========================================
+   CARD CONTENT - Контент карточки
+   ======================================== */
+
+.reviews__card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ========================================
+   HEADER - Шапка карточки
+   ======================================== */
+
+.reviews__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+/* User Info */
+.reviews__user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 214px;
+}
+
+.reviews__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4D3F42;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.reviews__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reviews__user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.reviews__user-name {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    color: #CECACA;
+}
+
+.reviews__user-date {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #CECACA;
+}
+
+/* Rating */
+.reviews__rating {
+    display: flex;
+    gap: -4px;
+    margin: 0;
+    
+
+    font-size: 24px;
+    line-height: 1;
+    color: #F9B062;
+    letter-spacing: -4px;
+}
+
+/* ========================================
+   TEXT - Текст отзыва
+   ======================================== */
+
+/* Скрытый чекбокс для управления состоянием */
+.reviews__toggle {
+    display: none;
+}
+
+/* Контейнер для сворачиваемого текста */
+.reviews__text {
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #CECACA;
+}
+
+/* Когда чекбокс активен - показываем весь текст */
+.reviews__toggle:checked ~ .reviews__card-content .reviews__text {
+    display: block;
+    -webkit-line-clamp: unset;
+}
+
+/* ========================================
+   SHOW MORE BUTTON - Кнопка "Показать еще / Скрыть"
+   ======================================== */
+
+.reviews__show-more {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.reviews__show-more-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    width: fit-content;
+    padding: 0;
+    
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    color: #CECACA;
+    
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.reviews__show-more-label:hover {
+    color: #FFFFFF;
+}
+
+.reviews__show-more-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.reviews__show-more-icon img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Поворот иконки при раскрытии */
+.reviews__toggle:checked ~ .reviews__show-more .reviews__show-more-icon {
+    transform: rotate(180deg);
+}
+
+/* Изменение текста кнопки */
+.reviews__show-more-text--show {
+    display: inline;
+}
+
+.reviews__show-more-text--hide {
+    display: none;
+}
+
+.reviews__toggle:checked ~ .reviews__show-more .reviews__show-more-text--show {
+    display: none;
+}
+
+.reviews__toggle:checked ~ .reviews__show-more .reviews__show-more-text--hide {
+    display: inline;
+}
+
+/* ========================================
+   PAGINATION - Пагинация
+   ======================================== */
+
+.reviews__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.reviews__pagination-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    background: #4D3F42;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.reviews__pagination-arrow:hover {
+    background: #5A4B4E;
+}
+
+.reviews__pagination-arrow img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.reviews__pagination-label {
+    margin: 0;
+    width: 70px;
+    
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+    color: #7B7B9E;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1599 */
+@media (max-width: 1599px) {
+}
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+    .reviews__title {
+        font-size: 24px;
+    }
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+    .reviews__title {
+        font-size: 22px;
+    }
+    
+    .reviews__user-name {
+        font-size: 18px;
+    }
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .reviews {
+        gap: 10px;
+    }
+    
+    .reviews__title {
+        font-size: 20px;
+    }
+    
+    .reviews__wrapper {
+        gap: 16px;
+    }
+    
+    .reviews__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .reviews__user {
+        width: 100%;
+    }
+    
+    .reviews__user-name {
+        font-size: 16px;
+    }
+    
+    .reviews__text {
+        font-size: 14px;
+    }
+    
+    .reviews__rating {
+        font-size: 20px;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .reviews__title {
+        font-size: 18px;
+    }
+    
+    .reviews__card {
+        padding: 12px;
+    }
+    
+    .reviews__user-name {
+        font-size: 14px;
+    }
+    
+    .reviews__user-date {
+        font-size: 12px;
+    }
+    
+    .reviews__text {
+        font-size: 13px;
+    }
+    
+    .reviews__rating {
+        font-size: 18px;
+    }
+    
+    .reviews__avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .reviews__show-more {
+        font-size: 14px;
+    }
+}
+

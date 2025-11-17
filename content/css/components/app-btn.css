@@ -1,0 +1,71 @@
+/* ========================================
+   КОМПОНЕНТ: app-btn
+   Описание: Ссылки для скачивания приложений (iOS, Android)
+   ======================================== */
+
+/* Базовая ссылка приложения */
+.app-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    position: relative;
+    
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #FFFFFF;
+    
+    background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%);
+    border-radius: 12px;
+    
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.app-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.app-btn:hover {
+    background: linear-gradient(180deg, rgba(90, 73, 76, 1) 0%, rgba(100, 83, 86, 1) 100%);
+}
+
+.app-btn:hover::before {
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.48) 0%, rgba(212, 199, 196, 0.24) 100%);
+}
+
+/* Иконка приложения */
+.app-btn__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность
+   ======================================== */
+
+/* ≤599px */
+@media (max-width: 599px) {
+    .app-btn {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+

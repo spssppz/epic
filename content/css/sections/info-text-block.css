@@ -1,0 +1,511 @@
+/* ========================================
+   КОМПОНЕНТ: info-text-block
+   Описание: Информационный текстовый блок с функцией "Показать еще"
+   ======================================== */
+
+/* Базовый блок */
+.info-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+    width: 100%;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(39, 32, 33, 1) 0%, rgba(44, 36, 37, 1) 100%);
+    border-radius: 16px;
+    box-shadow: 5px 5px 15px 0px rgba(21, 19, 21, 0.16);
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.info-text-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.2) 0%, rgba(212, 199, 196, 0.08) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* ========================================
+   CONTENT - Контент
+   ======================================== */
+
+.info-text-block__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* ========================================
+   ПРИМЕЧАНИЕ: Стили для текстовых элементов (H1-H6, P, UL, OL)
+   вынесены в text-base.css
+   ======================================== */
+
+.info-text-block__wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.info-text-block__not-full {
+    width: 100%;
+}
+
+
+/* ========================================
+   EXPANDABLE CONTENT - Раскрываемый контент
+   ======================================== */
+
+/* Скрытый чекбокс для управления состоянием */
+.info-text-block__toggle {
+    display: none;
+}
+
+/* Контейнер для сворачиваемого контента */
+.info-text-block__expandable {
+    max-height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    position: relative;
+}
+
+/* Когда чекбокс активен - показываем весь контент */
+.info-text-block__toggle:checked ~ .info-text-block__content .info-text-block__expandable {
+    max-height: 5000px;
+}
+
+/* ========================================
+   SHOW MORE BUTTON - Кнопка "Показать еще"
+   ======================================== */
+
+.info-text-block__show-more {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.info-text-block__show-more-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: fit-content;
+    padding: 0;
+    
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1;
+    text-align: center;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.info-text-block__show-more-label:hover {
+    opacity: 0.6;
+}
+
+/* Иконка */
+.info-text-block__show-more-icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.info-text-block__show-more-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Поворот иконки при раскрытии */
+.info-text-block__toggle:checked ~ .info-text-block__content .info-text-block__show-more-icon {
+    transform: rotate(180deg);
+}
+
+/* Изменение текста кнопки */
+.info-text-block__show-more-text--show {
+    display: inline;
+}
+
+.info-text-block__show-more-text--hide {
+    display: none;
+}
+
+.info-text-block__toggle:checked ~ .info-text-block__content .info-text-block__show-more-text--show {
+    display: none;
+}
+
+.info-text-block__toggle:checked ~ .info-text-block__content .info-text-block__show-more-text--hide {
+    display: inline;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1599 */
+@media (max-width: 1599px) {
+}
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+    .info-text-block {
+        max-width: 100%;
+    }
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .info-text-block {
+        padding: 12px;
+        gap: 16px;
+    }
+    
+    .info-text-block__content {
+        gap: 16px;
+    }
+    
+    .info-text-block__show-more-label {
+        font-size: 14px;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .info-text-block {
+        padding: 8px;
+        gap: 12px;
+        border-radius: 12px;
+    }
+    
+    .info-text-block__content {
+        gap: 12px;
+    }
+    
+    .info-text-block__show-more-label {
+        font-size: 13px;
+    }
+    
+    .info-text-block__show-more-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ========================================
+   TEXT BASE STYLES
+   Описание: Базовые стили для текстовых элементов в блоке info-text-block
+   ======================================== */
+
+/* ========================================
+   ЗАГОЛОВКИ - Headings (H1-H6)
+   ======================================== */
+
+.info-text-block h1,
+.info-text-block h2,
+.info-text-block h3,
+.info-text-block h4,
+.info-text-block h5,
+.info-text-block h6 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+
+    font-weight: 500;
+    letter-spacing: -0.005em;
+}
+
+/* H1 */
+.info-text-block h1 {
+    font-size: 32px;
+    line-height: 1.25;
+}
+
+/* H2 */
+.info-text-block h2 {
+    font-size: 28px;
+    line-height: 1.29;
+}
+
+/* H3 */
+.info-text-block h3 {
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+/* H4 */
+.info-text-block h4 {
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+/* H5 */
+.info-text-block h5 {
+    font-size: 18px;
+    line-height: 1.22;
+}
+
+/* H6 */
+.info-text-block h6 {
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+/* ========================================
+   ПАРАГРАФЫ - Paragraphs
+   ======================================== */
+
+.info-text-block p {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+/* ========================================
+   СПИСКИ - Lists (UL, OL)
+   ======================================== */
+
+.info-text-block ul,
+.info-text-block ol {
+    margin: 0;
+    padding-left: 24px;
+
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.info-text-block ul li,
+.info-text-block ol li {
+    margin-bottom: 2px;
+}
+
+.info-text-block ul li:last-child,
+.info-text-block ol li:last-child {
+    margin-bottom: 0;
+}
+
+.info-text-block ul {
+    list-style-type: disc;
+}
+
+.info-text-block ol {
+    list-style-type: decimal;
+}
+
+.info-text-block ul li::marker,
+.info-text-block ol li::marker {
+}
+
+/* ========================================
+   ТАБЛИЦЫ - Tables
+   ======================================== */
+
+.info-text-block table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.info-text-block table th {
+    padding: 12px 16px;
+    text-align: left;
+    border: 1px solid rgba(212, 199, 196, 0.2);
+
+    font-weight: 600;
+}
+
+.info-text-block table td {
+    padding: 12px 16px;
+    border: 1px solid rgba(212, 199, 196, 0.2);
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+    .info-text-block h1 {
+        font-size: 28px;
+    }
+
+    .info-text-block h2 {
+        font-size: 24px;
+    }
+
+    .info-text-block h3 {
+        font-size: 20px;
+    }
+
+    .info-text-block h4 {
+        font-size: 18px;
+    }
+
+    .info-text-block h5 {
+        font-size: 16px;
+    }
+
+    .info-text-block h6 {
+        font-size: 14px;
+    }
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .info-text-block h1 {
+        font-size: 24px;
+    }
+
+    .info-text-block h2 {
+        font-size: 20px;
+    }
+
+    .info-text-block h3 {
+        font-size: 18px;
+    }
+
+    .info-text-block h4 {
+        font-size: 16px;
+    }
+
+    .info-text-block h5 {
+        font-size: 14px;
+    }
+
+    .info-text-block h6 {
+        font-size: 13px;
+    }
+
+    .info-text-block p {
+        font-size: 14px;
+    }
+
+    .info-text-block ul,
+    .info-text-block ol {
+        font-size: 14px;
+    }
+
+    .info-text-block table {
+        font-size: 14px;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .info-text-block h1 {
+        font-size: 20px;
+    }
+
+    .info-text-block h2 {
+        font-size: 18px;
+    }
+
+    .info-text-block h3 {
+        font-size: 16px;
+    }
+
+    .info-text-block h4 {
+        font-size: 14px;
+    }
+
+    .info-text-block h5 {
+        font-size: 13px;
+    }
+
+    .info-text-block h6 {
+        font-size: 12px;
+    }
+
+    .info-text-block p {
+        font-size: 13px;
+    }
+
+    .info-text-block ul,
+    .info-text-block ol {
+        font-size: 13px;
+    }
+
+    .info-text-block table {
+        font-size: 13px;
+    }
+
+    .info-text-block table th,
+    .info-text-block table td {
+        padding: 8px 12px;
+    }
+}
+
+/*
+HTML разметка:
+
+<div class="info-text-block">
+  <input type="checkbox" id="info-toggle" class="info-text-block__toggle">
+  
+  <div class="info-text-block__content">
+    <!-- Контент, который виден всегда (text_not_full) -->
+    <div class="info-text-block__not-full">
+      {text_not_full}
+    </div>
+    <!-- Здесь размещается контент без классов:
+         <h2>Заголовок</h2>
+         <p>Параграф текста</p>
+    -->
+    
+    <!-- Раскрываемый контент (text_full) - скрыт по умолчанию (max-height: 0) -->
+    <div class="info-text-block__expandable">
+      {text_full}
+      <!-- Здесь размещается скрытый контент без классов:
+           <p>Параграф текста</p>
+           <ul><li>Маркированный список</li></ul>
+           <ol><li>Нумерованный список</li></ol>
+      -->
+    </div>
+    
+    <!-- Кнопка "Показать еще" -->
+    <div class="info-text-block__show-more">
+      <label for="info-toggle" class="info-text-block__show-more-label">
+        <span class="info-text-block__show-more-text--show">Показать еще</span>
+        <span class="info-text-block__show-more-text--hide">Скрыть</span>
+        <span class="info-text-block__show-more-icon">
+          <svg>...</svg>
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
+
+ПРИМЕЧАНИЕ: 
+- Стили для текстовых элементов (H1-H6, P, UL, OL) находятся в text-base.css
+- Контент в .info-text-block__expandable скрыт по умолчанию (max-height: 0)
+- При клике на кнопку контент раскрывается (max-height: 5000px)
+*/
+

@@ -1,0 +1,164 @@
+/* ========================================
+   БЛОК: main-banner
+   Описание: Главный баннер сайта с версиями для мобильных и десктопа
+   ======================================== */
+
+.main-banner {
+    display: flex;
+    gap: 12px;
+    height: 320px;
+}
+
+/*320*/
+/*260*/
+/*200*/
+
+/* Desktop версия - обертка для отображения баннеров на больших экранах */
+
+/* Элемент баннера (универсальный) */
+.main-banner__item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+}
+
+/* Градиентная обводка для баннеров */
+.main-banner__item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(139deg, rgba(176, 112, 69, 1) 0%, rgba(215, 177, 152, 0.24) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Модификатор для большого баннера (левый на desktop) */
+.main-banner__item--large {
+    flex: 1; /* Занимает оставшееся пространство */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 32px 32px;
+    box-shadow: 0px 16px 56px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Фоновое изображение баннера */
+.main-banner__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.main-banner__item--large .main-banner__image {
+    object-position: left;
+}
+
+/* Градиентный оверлей для большого баннера */
+.main-banner__item--large::after {
+    /*content: '';*/
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(44, 36, 37, 0.8) 50%, rgba(11, 9, 10, 0) 61%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Кнопка в большом баннере */
+.main-banner__button {
+    position: relative;
+    z-index: 1;
+    width: 160px;
+}
+
+/* Модификатор для маленького баннера (правый на desktop) */
+.main-banner__item--small {
+    width: 25.91%; /* 370px из общей ширины (1058 + 370 = 1428px без gap) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 24px;
+}
+
+/* Заголовок маленького баннера */
+.main-banner__item--small .main-banner__title {
+    font-size: 48px;
+    line-height: 1.17;
+    letter-spacing: -0.01em;
+    text-align: center;
+    text-shadow: 0px 0px 24px rgba(255, 200, 147, 0.24), 0px 0px 12px rgba(12, 10, 7, 0.6);
+}
+
+/* Кнопка в маленьком баннере */
+.main-banner__item--small .main-banner__button {
+    width: auto;
+    margin-top: auto;
+}
+
+/* Элемент слайда для mobile версии */
+.main-banner__slide {
+    height: 100%;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1599 */
+@media (max-width: 1599px) {
+}
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .main-banner {
+        height: 280px;
+    }
+
+    .main-banner__item--large {
+        padding: 12px 24px 24px;
+    }
+
+    .main-banner__item--small {
+        width: 40%; /* 260px из общей ширины (663 + 260 = 923px без gap) */
+        padding: 12px 24px 24px;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .main-banner {
+        height: 200px;
+    }
+
+    .main-banner__item--large {
+        padding: 12px 16px 16px;
+    }
+
+    .main-banner__item--small {
+        display: none;
+    }
+}

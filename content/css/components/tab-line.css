@@ -1,0 +1,224 @@
+/* ========================================
+   КОМПОНЕНТ: tab-line
+   Описание: Линейные табы с вариативными размерами и состояниями
+   ======================================== */
+
+.tab-line {
+  --tab-line-height: 40px;
+  --tab-line-padding-x: 8px;
+  --tab-line-font-size: 20px;
+  --tab-line-letter-spacing: -0.5%;
+  --tab-line-icon-size: 24px;
+  --tab-line-open-color: #ffffff;
+  --tab-line-hover-color: #f9b062;
+  --tab-line-active-color: #ec7e09;
+  --tab-line-disabled-color: rgba(255, 255, 255, 0.4);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: var(--tab-line-height);
+  padding-inline: var(--tab-line-padding-x);
+  border-radius: 12px;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.64);
+
+  font-weight: 500;
+  font-size: var(--tab-line-font-size);
+  line-height: 1.2;
+  letter-spacing: var(--tab-line-letter-spacing);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.tab-line::before,
+.tab-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.tab-line::before {
+  left: -11px;
+  top: -39px;
+  width: 132px;
+  height: 35px;
+  background: linear-gradient(0deg, rgba(255, 157, 112, 0.7) 62%, rgba(255, 197, 136, 0.5) 100%);
+  filter: blur(40px);
+  z-index: -2;
+}
+
+.tab-line::after {
+  left: 17px;
+  top: calc(100%);
+  width: 75px;
+  height: 27px;
+  background: linear-gradient(0deg, rgba(255, 157, 112, 0.7) 62%, rgba(255, 197, 136, 0.5) 100%);
+  filter: blur(50px);
+  z-index: -2;
+}
+
+.tab-line__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tab-line-icon-size);
+  height: var(--tab-line-icon-size);
+  flex-shrink: 0;
+}
+
+.tab-line__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.64;
+  transition: opacity 0.2s ease;
+}
+
+.tab-line__label {
+  white-space: nowrap;
+}
+
+.tab-line__stars,
+.tab-line__underline {
+  position: absolute;
+  inset: auto;
+  pointer-events: none;
+  display: none;
+}
+
+.tab-line__stars {
+  width: 53px;
+  height: 28px;
+  top: 8px;
+  right: 4px;
+  background: url('../../images/tab-line/tab-line-stars.svg') center / contain no-repeat;
+  z-index: -1;
+}
+
+.tab-line__underline {
+  left: 8px;
+  right: 8px;
+  bottom: -12px;
+  height: 1px;
+  background: url('../../images/tab-line/tab-line-line.svg') center / cover no-repeat;
+  z-index: -1;
+}
+
+.tab-line--m {
+  --tab-line-height: 32px;
+  --tab-line-font-size: 16px;
+  --tab-line-letter-spacing: 0;
+  --tab-line-icon-size: 20px;
+}
+
+.tab-line:focus {
+  outline: none;
+}
+
+.tab-line:is(:hover, .is-hover):not(.is-disabled, [aria-disabled='true']) {
+  color: var(--tab-line-hover-color);
+}
+
+.tab-line:is(:hover, .is-hover):not(.is-disabled, [aria-disabled='true']) .tab-line__icon img {
+  opacity: 1;
+}
+
+.tab-line:is(:active, .is-active):not(.is-disabled, [aria-disabled='true']) {
+  color: var(--tab-line-active-color);
+}
+
+.tab-line:is(:active, .is-active):not(.is-disabled, [aria-disabled='true']) .tab-line__icon img {
+  opacity: 1;
+}
+
+.tab-line:is(:focus-visible, .is-focus):not(.is-disabled, [aria-disabled='true']) {
+  box-shadow: 0 0 0 2px rgba(249, 176, 98, 0.4);
+}
+
+.tab-line:is(.is-disabled, [aria-disabled='true']) {
+  color: var(--tab-line-disabled-color);
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.tab-line:is(.is-disabled, [aria-disabled='true']) .tab-line__icon img {
+  opacity: 0.4;
+}
+
+.tab-line.is-open {
+  color: var(--tab-line-open-color);
+}
+
+.tab-line.is-open .tab-line__icon img {
+  opacity: 1;
+}
+
+.tab-line.is-open:is(:hover, .is-hover, :active, .is-active) {
+  color: var(--tab-line-open-color);
+}
+
+.tab-line.is-open:is(:hover, .is-hover, :active, .is-active) .tab-line__icon img {
+  opacity: 1;
+}
+
+.tab-line.is-open:is(:focus-visible, .is-focus) {
+  box-shadow: 0 0 0 2px rgba(249, 176, 98, 0.4);
+}
+
+.tab-line.is-open::before,
+.tab-line.is-open::after,
+.tab-line.is-open .tab-line__stars,
+.tab-line.is-open .tab-line__underline {
+  display: block;
+  opacity: 1;
+}
+
+.tab-line--m::before {
+  top: -32px;
+  left: -19px;
+  width: 132px;
+  height: 30px;
+}
+
+.tab-line--m::after {
+  top: calc(100% - 4px);
+  left: 9px;
+  width: 75px;
+  height: 30px;
+}
+
+.tab-line--m .tab-line__stars {
+  width: 46px;
+  height: 24px;
+  top: 6px;
+  right: 0;
+}
+
+.tab-line--m .tab-line__underline {
+  left: 6px;
+  right: 6px;
+  bottom: -10px;
+}
+
+.tab-line.is-open.tab-line--m {
+  padding-inline: 8px;
+}
+
+.tab-line.is-open.tab-line--m::after {
+  top: calc(100% - 2px);
+}
+
+.tab-line-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+

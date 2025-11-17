@@ -1,0 +1,308 @@
+/* ========================================
+   КОМПОНЕНТ: footer
+   Описание: Подвал сайта с ссылками, соцсетями и информацией
+   ======================================== */
+
+/* CSS Variables */
+:root {
+    --height-mobile-bar: 70px;
+}
+
+/* Базовый контейнер */
+.footer {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+/* ========================================
+   TOP SECTION - Верхняя секция
+   ======================================== */
+
+.footer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+}
+
+/* ========================================
+   LINKS - Ссылки
+   ======================================== */
+
+.footer__links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer__links-part {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #FFFFFF;
+    white-space: nowrap;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+    opacity: 0.7;
+}
+
+/* ========================================
+   RIGHT SECTION - Правая секция
+   ======================================== */
+
+.footer__right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Language Selector */
+.footer__language {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #FFFFFF;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.footer__language:hover {
+    opacity: 0.7;
+}
+
+.footer__language-flag,
+.footer__language-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* Social Media */
+.footer__social {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer__social-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 20px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer__social-link:hover {
+    opacity: 0.7;
+}
+
+.footer__social-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.footer__social-icon--yt {
+    width: 29px;
+    height: 20px;
+}
+
+/* ========================================
+   APP BUTTONS - Кнопки приложений
+   ======================================== */
+
+.footer__apps {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ========================================
+   DIVIDER - Разделитель
+   ======================================== */
+
+.footer__divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.16);
+    border: none;
+}
+
+/* ========================================
+   BOTTOM SECTION - Нижняя секция
+   ======================================== */
+
+.footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Description */
+.footer__description {
+    display: flex;
+    gap: 20px;
+    max-width: 980px;
+}
+
+.footer__description-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.footer__description-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.footer__description-text {
+    margin: 0;
+    flex: 1;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+/* Copyright */
+.footer__copyright {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    color: rgba(255, 255, 255, 0.64);
+    white-space: nowrap;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+    .footer {
+        padding-top: 60px;
+    }
+
+    .footer__container {
+    }
+    
+    .footer__top {
+        gap: 30px;
+    }
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .footer {
+        padding-top: 24px;
+        padding-bottom: calc(24px + var(--height-mobile-bar));
+    }
+
+    .footer__container {
+    }
+
+    .footer__apps {
+        display: none;
+    }
+    
+    .footer__links {
+        gap: 12px;
+    }
+    
+    .footer__right {
+        gap: 20px;
+    }
+    
+    .footer__description {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .footer__bottom {
+        flex-direction: column;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .footer {
+        padding-top: 24px;
+    }
+
+    .footer__container {
+        gap: 20px;
+    }
+    
+    .footer__link,
+    .footer__language {
+        font-size: 13px;
+    }
+
+    .footer__right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .footer__apps {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .footer__apps .app-btn {
+        width: 100%;
+    }
+    
+    .footer__description-text {
+        font-size: 11px;
+    }
+    
+    .footer__copyright {
+        font-size: 12px;
+    }
+}
+

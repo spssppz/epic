@@ -1,0 +1,422 @@
+/* ========================================
+   КОМПОНЕНТ: bonus-system
+   Описание: Система бонусов с карточками промокодов, кэшбека и первого депозита
+   ======================================== */
+
+/* Базовый контейнер */
+.bonus-system {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+}
+
+/* ========================================
+   CONTENT - Контентная часть
+   ======================================== */
+
+.bonus-system__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ========================================
+   HEADING - Заголовок секции
+   ======================================== */
+
+.bonus-system__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.bonus-system__title {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.29;
+    letter-spacing: -0.005em;
+    color: #FFFFFF;
+}
+
+/* ========================================
+   CARDS CONTAINER - Контейнер карточек
+   ======================================== */
+
+.bonus-system__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+.bonus-system__column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* ========================================
+   CARD - Базовая карточка
+   ======================================== */
+
+.bonus-system__card {
+    position: relative;
+    border-radius: 16px;
+    overflow: visible;
+    
+    /*background: linear-gradient(180deg, rgba(39, 32, 33, 1) 0%, rgba(44, 36, 37, 1) 100%);*/
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.bonus-system__card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 0px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ========================================
+   PROMO CODE CARD - Карточка промокода
+   ======================================== */
+
+.bonus-system__card--promo {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    width: 100%;
+}
+
+.bonus-system__promo-form {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bonus-system__cashback-link,
+.bonus-system__deposit-link {
+    align-self: flex-start;
+}
+
+.bonus-system__card--promo .bonus-system__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bonus-system__card--promo > *:not(.bonus-system__bg) {
+    position: relative;
+    z-index: 1;
+}
+
+.bonus-system__promo-input-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.bonus-system__promo-label {
+    height: 0;
+    opacity: 0;
+    margin: 0;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+.bonus-system__promo-input {
+    padding: 12px 16px;
+    
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFFFFF;
+    
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    outline: none;
+    transition: background 0.3s ease, border-color 0.3s ease;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.bonus-system__promo-input::placeholder {
+    color: rgba(255, 255, 255, 0.32);
+}
+
+.bonus-system__promo-input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.32);
+}
+
+/* ========================================
+   CASHBACK CARD - Карточка кэшбека
+   ======================================== */
+
+.bonus-system__card--cashback {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    width: 100%;
+}
+
+.bonus-system__card--cashback .bonus-system__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bonus-system__card--cashback .bonus-system__content-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.bonus-system__card--cashback .bonus-system__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bonus-system__card--cashback .bonus-system__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bonus-system__card-title {
+    margin: 0;
+    
+
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.33;
+    letter-spacing: -0.005em;
+    color: #FFFFFF;
+}
+
+.bonus-system__card-description {
+    margin: 0;
+    width: 336px;
+    
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+/* ========================================
+   FIRST DEPOSIT CARD - Карточка первого депозита
+   ======================================== */
+
+.bonus-system__card--deposit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px;
+    width: 100%;
+}
+
+.bonus-system__card--deposit .bonus-system__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bonus-system__card--deposit .bonus-system__content-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    height: 100%;
+}
+
+.bonus-system__card--deposit .bonus-system__text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bonus-system__card--deposit .bonus-system__header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bonus-system__deposit-title {
+    margin: 0;
+    
+
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.125;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+
+.bonus-system__deposit-description {
+    margin: 0;
+    max-width: 500px;
+    
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+.bonus-system__card img {
+    object-fit: unset;
+    height: 100%;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1599 */
+@media (max-width: 1599px) {
+}
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+    .bonus-system__title {
+        font-size: 24px;
+    }
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .bonus-system__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .bonus-system__card--promo,
+    .bonus-system__card--cashback,
+    .bonus-system__card--deposit {
+        width: 100%;
+    }
+
+    .bonus-system__card--deposit .bonus-system__bg {
+        width: 100%;
+    }
+
+    .bonus-system__card--promo {
+        min-height: 84px;
+    }
+    .bonus-system__card--cashback {
+        min-height: 188px;
+    }
+
+    .bonus-system__card--deposit {
+        min-height: 260px;
+    }
+
+
+    .bonus-system {
+        gap: 24px;
+    }
+    
+    .bonus-system__title {
+        font-size: 20px;
+    }
+    
+    .bonus-system__card--promo {
+        flex-direction: column;
+    }
+    
+    .bonus-system__card-description {
+        width: 100%;
+    }
+    
+    .bonus-system__deposit-title {
+        font-size: 28px;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .bonus-system {
+        gap: 20px;
+    }
+    
+    .bonus-system__content {
+        gap: 12px;
+    }
+    
+    .bonus-system__title {
+        font-size: 18px;
+    }
+    
+    .bonus-system__card--promo,
+    .bonus-system__card--cashback,
+    .bonus-system__card--deposit {
+        padding: 12px;
+    }
+
+    .bonus-system__promo-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .bonus-system__promo-form .ctr-btn {
+        width: 100%;
+    }
+
+    .bonus-system__promo-input {
+        width: 100%;
+    }
+    
+    .bonus-system__card-title {
+        font-size: 20px;
+    }
+    
+    .bonus-system__deposit-title {
+        font-size: 24px;
+    }
+    
+    .bonus-system__deposit-description {
+        font-size: 14px;
+    }
+}
+

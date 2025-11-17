@@ -1,0 +1,582 @@
+/* ========================================
+   КОМПОНЕНТ: game-block
+   Описание: Карточка игры с изображением и информацией, 
+   включая элементы управления (заголовок и навигация)
+   ======================================== */
+
+/* ========================================
+   CONTROLS - Заголовок и кнопки управления
+   ======================================== */
+
+/* Обертка для заголовка и кнопок управления */
+.game-block__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Кнопка с заголовком и иконкой */
+.game-block__header-head {
+    display: flex;
+    align-items: center;
+}
+
+.game-block__header {
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.5%;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.game-block__header-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* Навигация (кнопки prev/next) */
+.game-block__nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.game-block__nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    
+    background: linear-gradient(180deg, rgba(79, 64, 67, 1) 0%, rgba(90, 73, 76, 1) 100%);
+    border-radius: 12px;
+    border-image-source: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    position: relative;
+    border: none;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.game-block__nav-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.32) 0%, rgba(212, 199, 196, 0.16) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.game-block__nav-button:hover {
+    opacity: 0.8;
+}
+
+.game-block__nav-button:active {
+    opacity: 0.6;
+}
+
+.game-block__nav-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* ========================================
+   CARD - Карточка игры
+   ======================================== */
+
+/* Базовая карточка игры */
+.game-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 6px 12px;
+    width: 100%;
+    max-width: 221px;
+    position: relative;
+    
+    background: linear-gradient(180deg, rgba(44, 36, 37, 1) 0%, rgba(44, 36, 37, 1) 62%, rgba(79, 64, 67, 1) 100%);
+    border-radius: 16px;
+    
+    cursor: pointer;
+    transition: background 0.3s ease;
+    overflow: visible;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.game-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(212, 199, 196, 0.4) 0%, rgba(212, 199, 196, 0.2) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+/* ========================================
+   IMAGE CONTAINER - Контейнер изображения
+   ======================================== */
+
+.game-block__image-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    box-shadow: 5px 5px 15px 0px rgba(21, 19, 21, 0.16);
+    /* Clip-path с вогнутой кривой снизу */
+    /*clip-path: path('M 0 12 Q 0 0 12 0 L 228 0 Q 240 0 240 12 L 240 208 Q 120 195 0 208 Z');*/
+    /*clip-path: url(#responsive-card-shape);*/
+}
+
+.game-block__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    border-radius: 12px;
+}
+
+/* Кнопки поверх изображения (показываются при hover) */
+.game-block__buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.game-block:hover .game-block__buttons {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Кнопка "Избранное" (сердечко) */
+.game-block__favorite {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 11;
+    padding: 0;
+}
+
+.game-block:hover .game-block__favorite {
+    opacity: 1;
+}
+
+.game-block__favorite img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.game-block__favorite:hover img {
+    opacity: 1;
+}
+
+/* ========================================
+   SEPARATOR - Разделитель
+   ======================================== */
+
+.game-block__separator {
+    width: 100%;
+    height: 24px;
+    position: relative;
+    margin: -6px 0 0 0;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-block__separator img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: none;
+}
+
+/* ========================================
+   INFO - Информация о игре
+   ======================================== */
+
+.game-block__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 4px 0 0;
+    border-radius: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Декоративные звезды на фоне нижней части при hover */
+.game-block__decoration-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 232px;
+    height: 51px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.game-block:hover .game-block__decoration-bottom {
+    opacity: 1;
+}
+
+.game-block__title {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.game-block__provider {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.64);
+}
+
+/* ========================================
+   HOVER STATE - Состояние при наведении
+   ======================================== */
+
+.game-block:hover {
+    background: linear-gradient(180deg, rgba(162, 102, 63, 1) 0%, rgba(186, 122, 79, 1) 100%);
+}
+
+.game-block:hover::before {
+    background: linear-gradient(180deg, rgba(251, 206, 157, 1) 0%, rgba(249, 176, 98, 1) 100%);
+}
+
+.game-block:hover .game-block__image-container::after {
+    opacity: 1;
+}
+
+/* ========================================
+   BUTTONS - Кнопки
+   ======================================== */
+
+.game-block__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    width: 116px;
+    height: 48px;
+
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #FFFFFF;
+
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+/* Синяя кнопка Play */
+.game-block__button--play {
+    background: linear-gradient(180deg, rgba(23, 114, 242, 1) 0%, rgba(81, 149, 246, 1) 100%);
+    box-shadow: 0px 4px 16px 0px rgba(13, 104, 232, 0.24);
+    position: relative;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.game-block__button--play::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.game-block__button--play:hover {
+    background: linear-gradient(180deg, rgba(11, 87, 193, 1) 0%, rgba(23, 114, 242, 1) 100%);
+}
+
+.game-block__button--play:active {
+    background: linear-gradient(180deg, rgba(7, 61, 135, 1) 0%, rgba(11, 87, 193, 1) 100%);
+}
+
+/* Оранжевая кнопка Demo */
+.game-block__button--demo {
+    background: linear-gradient(180deg, rgba(246, 136, 19, 1) 0%, rgba(248, 156, 58, 1) 100%);
+    box-shadow: 0px 4px 24px 0px rgba(215, 177, 152, 0.24);
+    position: relative;
+}
+
+/* Градиентная рамка через псевдоэлемент */
+.game-block__button--demo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.game-block__button--demo:hover {
+    background: linear-gradient(180deg, rgba(230, 120, 10, 1) 0%, rgba(240, 140, 40, 1) 100%);
+}
+
+.game-block__button--demo:active {
+    background: linear-gradient(180deg, rgba(210, 100, 5, 1) 0%, rgba(220, 120, 30, 1) 100%);
+}
+
+/* ========================================
+   SECTION & GRID - Секция и сетка карточек
+   ======================================== */
+
+.game-block-section {
+    /*margin-bottom: 60px;*/
+}
+
+/* Swiper контейнер */
+.game-block__container {
+    overflow: hidden;
+    position: relative;
+}
+
+.game-block__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0px;
+    transition-property: transform;
+}
+
+.game-block__grid .game-block {
+    flex-shrink: 0;
+}
+
+/* ========================================
+   MEDIA QUERIES - Адаптивность (Desktop-first)
+   ======================================== */
+
+/* ≤1599 */
+@media (max-width: 1599px) {
+}
+
+/* ≤1439 */
+@media (max-width: 1439px) {
+}
+
+/* ≤1279 */
+@media (max-width: 1279px) {
+}
+
+/* ≤959 */
+@media (max-width: 959px) {
+    .game-block {
+        max-width: 220px;
+    }
+
+    .game-block__image-container {
+        height: 200px;
+    }
+
+    .game-block__title {
+        font-size: 15px;
+    }
+
+    .game-block__provider {
+        font-size: 13px;
+    }
+}
+
+/* ≤599 */
+@media (max-width: 599px) {
+    .game-block__grid .game-block {
+        flex-shrink: unset;
+    }
+
+    .game-block {
+        max-width: 100%;
+        padding: 2px 2px 8px;
+    }
+
+    .game-block__image-container {
+        height: 180px;
+    }
+
+    .game-block__title {
+        font-size: 14px;
+    }
+
+    .game-block__provider {
+        font-size: 12px;
+    }
+
+    .game-block__separator {
+        height: 8px;
+        padding: 0 8px;
+    }
+    
+    .game-block__controls {
+        margin-bottom: 16px;
+    }
+    
+    .game-block__header {
+        font-size: 18px;
+    }
+    
+    .game-block__header-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .game-block__nav-button {
+        width: 32px;
+        height: 32px;
+        padding: 6px;
+    }
+    
+    .game-block__nav-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    /* Нативный скролл на мобилке */
+    .game-block__container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .game-block__container::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .game-block__grid {
+        gap: 12px;
+        width: max-content;
+    }
+    
+    .game-block__nav {
+        display: none;
+    }
+}
+
+/*
+HTML разметка:
+
+Элементы управления (заголовок и навигация):
+<div class="game-block__controls">
+  <button class="game-block__header-button">
+    <h2 class="game-block__header">Popular Games</h2>
+    <img src="arrow-right.svg" alt="" class="game-block__header-icon">
+  </button>
+  
+  <div class="game-block__nav">
+    <button class="game-block__nav-button" aria-label="Previous">
+      <img src="arrow-left.svg" alt="" class="game-block__nav-icon">
+    </button>
+    <button class="game-block__nav-button" aria-label="Next">
+      <img src="arrow-right.svg" alt="" class="game-block__nav-icon">
+    </button>
+  </div>
+</div>
+
+Карточка игры:
+
+Базовое использование:
+<div class="game-block">
+  <div class="game-block__image-container">
+    <img src="game.jpg" alt="Game Name" class="game-block__image">
+
+    <!-- Кнопки (показываются при hover) -->
+    <div class="game-block__buttons">
+      <button class="game-block__button game-block__button--play">Play</button>
+      <button class="game-block__button game-block__button--demo">Demo</button>
+    </div>
+
+    <!-- Кнопка избранного -->
+    <button class="game-block__favorite">
+      <img src="icon-favorite.svg" alt="">
+    </button>
+  </div>
+
+  <div class="game-block__separator">
+    <img src="separator-curve.svg" alt="">
+  </div>
+  
+  <div class="game-block__info">
+    <!-- Декоративные звезды (показываются при hover) -->
+    <img class="game-block__decoration-bottom" src="decoration-stars-bottom.svg" alt="">
+    
+    <h3 class="game-block__title">Benny the Beer</h3>
+    <p class="game-block__provider">Hacksaw Gaming</p>
+  </div>
+</div>
+
+Особенности:
+- При hover карточка меняет цвет на оранжевый градиент
+- При hover появляются кнопки Play и Demo
+- При hover появляются декоративные звезды снизу
+- Кнопка избранного появляется при hover, класс .is-active делает её видимой всегда
+*/
+
